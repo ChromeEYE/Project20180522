@@ -12,9 +12,9 @@
     <div>
     
     </div>
-        <h2>Complete!</h2>
+        <h1>Complete!</h1>
         <p>従業員情報の登録が完了しました</p>
-        <href>戻る</href>
+        <a href="Create.aspx">戻る</a>
     </form>
 </body>
 </html>

@@ -24,7 +24,7 @@
         </p>
     <p>性別 
             
-        不明<input type="radio" name="gender" value="0" checked="checked" runat="server"/>
+        不明<input type="radio" name="gender" value="0" runat="server" checked="checked"/>
         男性<input type="radio" name="gender" value="1" runat="server"/>
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/>
@@ -32,7 +32,8 @@
     <p>生年月日<asp:TextBox ID="birth_y" runat="server"></asp:TextBox>
         <asp:TextBox ID="birth_m" runat="server"></asp:TextBox>
         <asp:TextBox ID="birth_d" runat="server"></asp:TextBox>
-        </p>
+   </p>
+
     <p>所属部署<select name="section">
         <option value="A1">管理部</option>
         <option value="A2">総務部</option>

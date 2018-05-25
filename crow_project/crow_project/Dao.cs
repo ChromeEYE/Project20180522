@@ -1,0 +1,178 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Text;
+
+namespace crow_project
+{
+    public class Dao
+    {
+        //コネクション変数
+        private SqlConnection con;
+
+        //トランザクション変数
+        private SqlTransaction trn;
+
+        /// <summary>
+        /// コンストラクタで各変数をインスタンス化
+        /// </summary>
+        public Dao()
+        {
+            con = TransMng.Transaction.Connection;
+            trn = TransMng.Transaction;
+        }
+
+        /// <summary>
+        /// データベースの従業員マスタから従業員情報、所属マスタから所属部署名を返す
+        /// </summary>
+        /// <returns></returns>
+        public List<List<string>> Show()
+        {
+            //string型Listのバッファ
+            List<string> buffArgs = new List<string>();
+            
+            //返り値用変数
+            List<List<string>> rtnArgs = new List<List<string>>();
+            
+            //外部ファイル化したsqlコマンドをstringで呼び出し
+            StreamReader sr = new StreamReader("select.txt", Encoding.GetEncoding("UTF-8"));
+            string command = sr.ReadToEnd();
+
+            //sqlコマンドでselectし、従業員マスタの全情報を取得
+            using (SqlCommand cmd = new SqlCommand(command , con, trn)) 
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        buffArgs.Add(reader["emp_cd"].ToString());
+                        buffArgs.Add(reader["last_nm"].ToString());
+                        buffArgs.Add(reader["first_nm"].ToString());
+                        buffArgs.Add(reader["last_nm_kana"].ToString());
+                        buffArgs.Add(reader["first_nm_kana"].ToString());
+                        buffArgs.Add(reader["gender_cd"].ToString());
+                        buffArgs.Add(reader["birth_date"].ToString());
+                        buffArgs.Add(reader["section_nm"].ToString());
+                        buffArgs.Add(reader["emp_date"].ToString());
+
+                        rtnArgs.Add(buffArgs);
+
+                        trn.Commit();
+                    }
+                }
+            }
+            return rtnArgs;
+        } 
+
+        /// <summary>
+        /// 渡された従業員コードに合致する従業員データを削除する
+        /// </summary>
+        /// <param name="cd">従業員コード</param>
+        /// <returns></returns>
+        public bool Delete(string cd)
+        {
+            bool rtn = true;
+
+            //外部ファイル化したsqlコマンドをstringで呼び出し
+            StreamReader sr = new StreamReader("delete.sql", Encoding.GetEncoding("UTF-8"));
+            string command = sr.ReadToEnd();
+
+            int execute = 0;
+
+            //sqlコマンドでdeleteし、従業員マスタの全情報を取得
+            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            {
+                cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
+
+                trn.Commit();
+
+                execute = cmd.ExecuteNonQuery();
+            }
+
+            if (execute == 0)
+                rtn = false;
+
+            return rtn; 
+        }
+
+        /// <summary>
+        /// コレクションをテーブルに
+        /// </summary>
+        /// <param name="employeeData"></param>
+        /// <returns></returns>
+        public bool Insert (Dictionary<string,string> employeeData)
+        {
+            bool rtn = true;
+
+            //外部ファイル化したsqlコマンドをstringで呼び出し
+            StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
+            string command = sr.ReadToEnd();
+
+            int execute = 0;
+
+            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            {
+                cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
+                execute += cmd.ExecuteNonQuery();
+            }
+
+            if (execute != 9)
+                rtn = false; 
+
+            return rtn;
+        }
+
+        /// <summary>
+        /// 文字列をセレクトし、有効な文字列が返ってきた場合ログイン
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        public bool Login(string UserID, string Password)
+        {
+            bool rtn = true;
+
+            //外部ファイル化したsqlコマンドをstringで呼び出し
+            StreamReader sr = new StreamReader("login.sql", Encoding.GetEncoding("UTF-8"));
+            string command = sr.ReadToEnd();
+
+            string executeID = "", executePW = "";
+            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            {
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = UserID;
+                cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = Password;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        executeID = reader["user_id"].ToString();
+                        executePW = reader["password"].ToString();
+                    }
+                }
+            }
+
+            if (executeID == "" || executePW == "")
+                rtn = false;
+
+            return rtn;
+        }
+    }
+}

@@ -32,20 +32,20 @@ namespace crow_project
         {
             //string型Listのバッファ
             List<string> buffArgs = new List<string>();
-            
+
             //返り値用変数
             //List<List<string>> rtnArgs = new List<List<string>>();
-            
+
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory()+"select.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "select.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand(command , con, trn)) 
+            using (SqlCommand cmd = new SqlCommand(command, con, trn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         buffArgs.Add(reader["emp_cd"].ToString());
                         buffArgs.Add(reader["last_nm"].ToString());
@@ -61,7 +61,7 @@ namespace crow_project
                 }
             }
             return buffArgs;
-        } 
+        }
 
         /// <summary>
         /// 渡された従業員コードに合致する従業員データを削除する
@@ -73,7 +73,7 @@ namespace crow_project
             bool rtn = true;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("delete.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "delete.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             int execute = 0;
@@ -91,7 +91,7 @@ namespace crow_project
             if (execute == 0)
                 rtn = false;
 
-            return rtn; 
+            return rtn;
         }
 
         /// <summary>
@@ -99,12 +99,12 @@ namespace crow_project
         /// </summary>
         /// <param name="employeeData"></param>
         /// <returns></returns>
-        public bool Insert (Dictionary<string,string> employeeData)
+        public bool Insert(Dictionary<string, string> employeeData)
         {
             bool rtn = true;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "insert.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             int execute = 0;
@@ -132,7 +132,7 @@ namespace crow_project
             }
 
             if (execute != 9)
-                rtn = false; 
+                rtn = false;
 
             return rtn;
         }
@@ -148,7 +148,7 @@ namespace crow_project
             bool rtn = true;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("login.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "login.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             string executeID = "", executePW = "";
@@ -158,7 +158,7 @@ namespace crow_project
                 cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = Password;
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         executeID = reader["user_id"].ToString();
                         executePW = reader["password"].ToString();

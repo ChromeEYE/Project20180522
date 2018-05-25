@@ -18,7 +18,10 @@ namespace UC01 {
 
             bool flag = true;
 
+            //trueならセッションを追加しメニュー画面へ遷移・falseならエラー画面1に遷移
             if (flag) {
+                Session.Add("USERID", Request.Form["UserID"]);
+                Session.Add("PASSWORD", Request.Form["Password"]);
                 Server.Transfer("Menu.aspx");
             } else {
                 Server.Transfer("Error1.html");

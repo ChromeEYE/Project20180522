@@ -1,8 +1,14 @@
 ﻿h1{
     text-align:center;
 }
-.text{
+#text1{
+    text-align:center;
     padding-left:150px;
+}
+
+#text2{
+    text-align:center;
+    padding-left:160px;
 }
 
 #user{
@@ -10,10 +16,10 @@
 }
 
 #password{
-    margin-left:28px;
+    margin-left:30px;
 }
 
 #button{
-    margin-top:70px;
-    padding-left:150px;
+    text-align:center;
+    margin-right:230px;
 }

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="select.sql" />
+    <Content Include="ShowMemberList.aspx" />
     <Content Include="UC3\Create.aspx" />
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />
@@ -114,6 +115,13 @@
       <DependentUpon>Menu.css.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowMemberList.aspx.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowMemberList.aspx.designer.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TransMng.cs" />
     <Compile Include="UC3\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>

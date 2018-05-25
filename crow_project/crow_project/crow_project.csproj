@@ -85,6 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="select.sql" />
+    <Content Include="UC3\Create.aspx" />
+    <Content Include="UC3\Create.css" />
+    <Content Include="UC3\Error.html" />
+    <Content Include="UC3\Insert_Success.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +115,20 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransMng.cs" />
+    <Compile Include="UC3\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC3\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UC3\Insert_Success.aspx.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC3\Insert_Success.aspx.designer.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

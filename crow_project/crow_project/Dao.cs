@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -111,12 +112,30 @@ namespace crow_project
 
             int execute = 0;
 
-            
-
             using (SqlCommand cmd = new SqlCommand(command, con, trn))
             {
-                //cmd.Parameters.Add("@code",SqlDbType.Char).Value=employeeData[]
+                cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
+                execute += cmd.ExecuteNonQuery();
+                cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
+                execute += cmd.ExecuteNonQuery();
             }
+
+            if (execute != 9)
+                rtn = false; 
 
             return rtn;
         }

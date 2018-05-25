@@ -28,16 +28,16 @@ namespace crow_project
         /// データベースの従業員マスタから従業員情報、所属マスタから所属部署名を返す
         /// </summary>
         /// <returns></returns>
-        public List<List<string>> Show()
+        public List<string> Show()
         {
             //string型Listのバッファ
             List<string> buffArgs = new List<string>();
             
             //返り値用変数
-            List<List<string>> rtnArgs = new List<List<string>>();
+            //List<List<string>> rtnArgs = new List<List<string>>();
             
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("select.txt", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory()+"select.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得
@@ -55,15 +55,12 @@ namespace crow_project
                         buffArgs.Add(reader["gender_cd"].ToString());
                         buffArgs.Add(reader["birth_date"].ToString());
                         buffArgs.Add(reader["section_nm"].ToString());
-                        buffArgs.Add(reader["emp_date"].ToString());
-
-                        rtnArgs.Add(buffArgs);
 
                         trn.Commit();
                     }
                 }
             }
-            return rtnArgs;
+            return buffArgs;
         } 
 
         /// <summary>

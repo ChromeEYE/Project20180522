@@ -15,7 +15,7 @@
 <body>
     <form id="form1" runat="server">
     <h1>従業員登録</h1>
-    <p>従業員コード<asp:TextBox ID="emp_cd" runat="server"></asp:TextBox>
+    <p>従業員コード<asp:TextBox ID="emp_cd" runat="server"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
         </p>
     <p>氏名氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
         名<asp:TextBox ID="first_nm" runat="server"></asp:TextBox><br />

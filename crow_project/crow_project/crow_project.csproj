@@ -75,10 +75,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ShowMemberList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowMemberList.aspx.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowMemberList.aspx.designer.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TransMng.cs" />
   </ItemGroup>
   <PropertyGroup>

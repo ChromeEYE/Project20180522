@@ -80,6 +80,7 @@
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,13 +107,6 @@
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dao.cs" />
-    <Compile Include="Insert_Success.aspx.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Insert_Success.aspx.designer.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,6 +143,13 @@
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransMng.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

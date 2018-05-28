@@ -66,8 +66,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Create.aspx" />
+    <Content Include="Create.css" />
     <Content Include="delete.sql" />
+    <Content Include="Error.html" />
     <Content Include="insert.sql" />
+    <Content Include="Insert_Success.aspx" />
     <Content Include="login.sql" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
@@ -96,7 +100,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dao.cs" />
+    <Compile Include="Insert_Success.aspx.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insert_Success.aspx.designer.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

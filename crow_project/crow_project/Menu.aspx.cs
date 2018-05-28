@@ -12,7 +12,7 @@ namespace UC01{
         }
         //従業員登録メニューボタンが押されたとき従業員登録画面に遷移
         protected void entry_Click(object sender, EventArgs e) {
-            Server.Transfer("Create.aspx");
+            Server.Transfer("UC3/Create.aspx");
         }
 
         //従業員一覧表示ボタンが押されたとき従業員一覧画面に遷移

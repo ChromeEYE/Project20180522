@@ -1,7 +1,6 @@
 ﻿using System;
 using UC2;
 using UC01;
-using crow_project.UC03;
 
 /// <summary>
 /// メニュー画面の処理

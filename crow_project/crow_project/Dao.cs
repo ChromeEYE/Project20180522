@@ -79,7 +79,7 @@ namespace crow_project
             int execute = 0;
 
             //sqlコマンドでdeleteし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE code = @code", con, trn))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE emp_cd = @code", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
 

@@ -103,12 +103,12 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
-            string command = sr.ReadToEnd();
+            //StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
+            //string command = sr.ReadToEnd();
 
             int execute = 0;
 
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
                 execute += cmd.ExecuteNonQuery();

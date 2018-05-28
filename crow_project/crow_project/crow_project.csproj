@@ -66,16 +66,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="Logout.html" />
-=======
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
->>>>>>> 984c08a0556e8a2b0be903c71cc28a629d84f850
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -85,13 +82,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Content Include="Logout_style.css" />
-=======
     <Content Include="UC03\Create.aspx" />
     <Content Include="UC03\Error.html" />
     <Content Include="UC03\Insert_Success.aspx" />
->>>>>>> 984c08a0556e8a2b0be903c71cc28a629d84f850
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -105,7 +105,7 @@ namespace crow_project
 
             int execute = 0;
 
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @updatetime)", con, trn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
@@ -116,7 +116,7 @@ namespace crow_project
                 cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
                 cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
                 cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                cmd.Parameters.Add("@createday", SqlDbType.DateTime).Value = System.DateTime.Now;
+                cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = System.DateTime.Now;
                 cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = System.DateTime.Now;
 
                 execute = cmd.ExecuteNonQuery();

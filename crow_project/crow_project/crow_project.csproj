@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Create.aspx" />
     <Content Include="delete.sql" />
+    <Content Include="Error2.html" />
     <Content Include="insert.sql" />
     <Content Include="Insert_Success.aspx" />
     <Content Include="login.sql" />

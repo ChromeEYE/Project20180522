@@ -93,14 +93,13 @@
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />
     <Content Include="UC3\Insert_Success.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Create.aspx" />
     <Content Include="Create.css" />
     <Content Include="Error.html" />
     <Content Include="Insert_Success.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao.cs" />
@@ -156,7 +155,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UC3\" />
+    <Folder Include="UC1\" />
+    <Folder Include="UC2\" />
+    <Folder Include="UC4\" />
+    <Folder Include="UC5\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

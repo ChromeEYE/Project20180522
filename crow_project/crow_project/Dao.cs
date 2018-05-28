@@ -116,8 +116,8 @@ namespace crow_project
                 cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
                 cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
                 cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = System.DateTime.Now;
-                cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = System.DateTime.Now;
+                cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
+                cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
 
                 execute = cmd.ExecuteNonQuery();
             }

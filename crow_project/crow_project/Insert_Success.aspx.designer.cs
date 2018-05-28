@@ -7,7 +7,7 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace crow_project.UC03 {
+namespace crow_project {
     
     
     public partial class Insert_Success {

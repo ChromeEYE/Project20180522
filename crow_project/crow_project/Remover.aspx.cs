@@ -11,6 +11,7 @@ namespace crow_project
                 Dao dao = new Dao();
                 bool flg = dao.Delete(Session["delete"].ToString());
 
+                //Delete時の返答行数で可否を問い、表示する文字列を決定する
                 if (flg)
                 {
                     Label1.Text = "Complete!";

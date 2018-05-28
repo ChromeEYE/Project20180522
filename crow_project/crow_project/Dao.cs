@@ -38,7 +38,7 @@ namespace crow_project
             //StreamReader sr = new StreamReader("select.sql", Encoding.GetEncoding("UTF-8"));
             //string command = sr.ReadToEnd();
 
-            //sqlコマンドでselectし、従業員マスタの全情報を取得
+            //sqlコマンドでselectし、従業員マスタの全情報を取得・buffargsに代入
             using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_nm, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd INNER JOIN m_gender ON m_employee.gender_cd = m_gender.gender_cd", con, trn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -75,7 +75,7 @@ namespace crow_project
 
             int execute = 0;
 
-            //sqlコマンドでdeleteし、従業員マスタの全情報を取得
+            //sqlコマンドでdeleteを実行
             using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE emp_cd = @code", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
@@ -84,6 +84,7 @@ namespace crow_project
 
                 execute = cmd.ExecuteNonQuery();
             }
+            //変更行数があった場合返り値をtrueに
             if (execute != 0)
                 rtn = true;
 
@@ -105,6 +106,7 @@ namespace crow_project
 
             int execute = 0;
 
+            //sqlcommandでinsert処理を実行
             using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
@@ -121,6 +123,7 @@ namespace crow_project
 
                 execute = cmd.ExecuteNonQuery();
             }
+            //見つかった場合返り値をtureに
             if (execute != 0)
                 rtn = true;
 
@@ -142,6 +145,8 @@ namespace crow_project
             //string command = sr.ReadToEnd();
 
             string executeID = "", executePW = "";
+
+            //sqlcommandでIDとパスワードを捜索
             using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
             {
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = UserID;
@@ -156,6 +161,7 @@ namespace crow_project
                 }
             }
 
+            //見つかった場合返り値をtrueに
             if (executeID != "" || executePW != "")
                 rtn = true;
 

@@ -60,7 +60,6 @@ namespace UC2 {
                             //Listの情報をテーブルに挿入
                             default:
                                 row.Cells[j].Text = member[listNum + (i * MAXNUM)];
-                                row.Cells[j].BorderStyle = BorderStyle.Solid;
                                 listNum++;
                                 break;
                         }

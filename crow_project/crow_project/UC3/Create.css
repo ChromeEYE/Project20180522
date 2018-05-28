@@ -1,2 +1,13 @@
-﻿body {padding-left: 100px;
+﻿.body {padding-left:100px;
 }
+
+.title{
+    padding-left:100px;
+
+}
+
+p{
+    padding-bottom:50px;
+}
+
+

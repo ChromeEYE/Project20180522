@@ -21,8 +21,9 @@
            パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
              </span>
              </p>
-         <br />
          <span id="button"><asp:Button ID="LoginButton" runat="server" Text="ログイン" OnClick="LoginButton_Click" /></span>
+
+         <br />
 
     </form>
 </body>

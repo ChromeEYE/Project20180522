@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="Login.css" type="text/css"/> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style2 {
-            width: 200px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

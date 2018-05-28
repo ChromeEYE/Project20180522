@@ -1,10 +1,6 @@
 ﻿using crow_project;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 /// <summary>
 /// ログイン画面の処理
 /// </summary>
@@ -18,8 +14,8 @@ namespace UC01 {
         protected void LoginButton_Click(object sender, EventArgs e) {
 
             bool flag = true;
-            string userId = Request.Form["UserID"];
-            string password = Request.Form["Password"];
+            string userId = UserID.Text;
+            string password = Password.Text;
 
             using (TransMng trn = new TransMng()) {
 

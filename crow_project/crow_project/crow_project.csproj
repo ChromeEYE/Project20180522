@@ -84,13 +84,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Remover.aspx" />
     <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
     <Content Include="UC3\Create.aspx" />
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />
     <Content Include="UC3\Insert_Success.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao.cs" />
@@ -115,6 +118,13 @@
       <DependentUpon>Menu.css.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remover.aspx.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Remover.aspx.designer.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShowMemberList.aspx.cs">
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

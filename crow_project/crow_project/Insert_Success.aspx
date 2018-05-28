@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Insert_Success.aspx.cs" Inherits="crow_project.UC03.Insert_Success" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Insert_Success.aspx.cs" Inherits="UC03.Insert_Success" %>
 
 <!DOCTYPE html>
 

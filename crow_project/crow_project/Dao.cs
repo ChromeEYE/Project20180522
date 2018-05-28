@@ -85,7 +85,6 @@ namespace crow_project
 
                 execute = cmd.ExecuteNonQuery();
             }
-
             if (execute != 0)
                 rtn = true;
 

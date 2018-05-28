@@ -106,24 +106,31 @@ namespace crow_project
 
             int execute = 0;
 
-            //sqlcommandでinsert処理を実行
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee SELECT * FROM (SELECT @code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update) AS TMP WHERE NOT EXISTS(SELECT * FROM m_employee)", con, trn))
+            try
             {
-                cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
-                cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
-                cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
-                cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
-                cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
-                cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
-                cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
-                cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
-                cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
-                cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
+                //sqlcommandでinsert処理を実行
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
+                {
+                    cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
+                    cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
+                    cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
+                    cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
+                    cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
+                    cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
+                    cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
+                    cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
 
-                trn.Commit();
+                    trn.Commit();
 
-                execute = cmd.ExecuteNonQuery();
+                    execute = cmd.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+
             }
             //見つかった場合返り値をtureに
             if (execute != 0)

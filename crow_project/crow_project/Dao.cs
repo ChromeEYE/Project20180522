@@ -121,6 +121,8 @@ namespace crow_project
                 cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
                 cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
 
+                trn.Commit();
+
                 execute = cmd.ExecuteNonQuery();
             }
             //見つかった場合返り値をtureに

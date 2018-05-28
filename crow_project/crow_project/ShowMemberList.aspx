@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="ShowMemberList.css">
+    <link rel="stylesheet" type="text/css" href="ShowMemberList.css"/>
 </head>
 <body>
     <div align="center">

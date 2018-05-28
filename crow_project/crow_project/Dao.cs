@@ -54,6 +54,7 @@ namespace crow_project
                         buffArgs.Add(reader["gender_cd"].ToString());
                         buffArgs.Add(reader["birth_date"].ToString());
                         buffArgs.Add(reader["section_nm"].ToString());
+                        buffArgs.Add(reader["emp_date"].ToString());
 
                         trn.Commit();
                     }

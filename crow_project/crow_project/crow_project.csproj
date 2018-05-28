@@ -87,10 +87,10 @@
     <Content Include="Remover.aspx" />
     <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
-    <Content Include="UC3\Create.aspx" />
-    <Content Include="UC3\Create.css" />
-    <Content Include="UC3\Error.html" />
-    <Content Include="UC3\Insert_Success.aspx" />
+    <Content Include="Create.aspx" />
+    <Content Include="Create.css" />
+    <Content Include="Error.html" />
+    <Content Include="Insert_Success.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -133,20 +133,23 @@
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransMng.cs" />
-    <Compile Include="UC3\Create.aspx.cs">
+    <Compile Include="Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC3\Create.aspx.designer.cs">
+    <Compile Include="Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UC3\Insert_Success.aspx.cs">
+    <Compile Include="Insert_Success.aspx.cs">
       <DependentUpon>Insert_Success.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC3\Insert_Success.aspx.designer.cs">
+    <Compile Include="Insert_Success.aspx.designer.cs">
       <DependentUpon>Insert_Success.aspx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UC3\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

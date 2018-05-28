@@ -65,7 +65,7 @@
 
 
     </p>
-        <a href="Menu.aspx">戻る</a>　　　　　　　　　　　　　　　　　　　　　　　　　　　　<asp:Button ID="CreateButton" CssClass="button" runat="server" Text="登録" OnClick="Submit_Click" />
+        <p><a href="Menu.aspx">戻る</a>　<asp:Button ID="CreateButton" CssClass="button" runat="server" Text="登録" OnClick="Submit_Click" /></p>
     <div>
     
     </div>

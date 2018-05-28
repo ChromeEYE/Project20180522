@@ -70,7 +70,7 @@
     <Content Include="delete.sql" />
     <Content Include="Error2.html" />
     <Content Include="insert.sql" />
-    <Content Include="Insert_Success.aspx" />
+    <Content Include="Insert_Success45.aspx" />
     <Content Include="login.sql" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
@@ -80,7 +80,6 @@
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -94,6 +93,7 @@
     <Content Include="ShowMemberList.aspx" />
     <Content Include="ShowMemberList.css" />
     <Content Include="Create.css" />
+    <Content Include="InsertSuccess.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -107,6 +107,13 @@
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dao.cs" />
+    <Compile Include="Insert_Success45.aspx.cs">
+      <DependentUpon>Insert_Success45.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insert_Success45.aspx.designer.cs">
+      <DependentUpon>Insert_Success45.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,13 +150,6 @@
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransMng.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -3,16 +3,14 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
+    <link rel="stylesheet" href="Create.css" type="text/css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css" >
-        #Select1 {
-            width: 54px;
-        }
-    </style>
 </head>
-<body class="body">
+
+<body>
     <form id="form1" runat="server">
     <h1 class="title">従業員登録</h1>
     <p>従業員コード<asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>

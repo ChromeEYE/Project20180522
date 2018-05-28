@@ -1,0 +1,19 @@
+﻿h1{
+    text-align:center;
+}
+.text{
+    padding-left:150px;
+}
+
+#user{
+    margin-left:40px;
+}
+
+#password{
+    margin-left:28px;
+}
+
+#button{
+    margin-top:70px;
+    padding-left:150px;
+}

@@ -84,8 +84,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Remover.aspx" />
     <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
+    <Content Include="ShowMemberList.css" />
     <Content Include="UC3\Create.aspx" />
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />
@@ -115,6 +117,13 @@
       <DependentUpon>Menu.css.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remover.aspx.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Remover.aspx.designer.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShowMemberList.aspx.cs">
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

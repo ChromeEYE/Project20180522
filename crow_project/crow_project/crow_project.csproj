@@ -66,17 +66,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UC4\delete.sql" />
-    <Content Include="UC4\insert.sql" />
-    <Content Include="UC4\login.sql" />
-    <Content Include="UC1\Error1.css" />
-    <Content Include="UC1\Error1.html" />
-    <Content Include="UC1\Login.aspx" />
-    <Content Include="UC1\Login.css" />
-    <Content Include="UC1\Menu.aspx" />
-    <Content Include="UC1\Menu.css" />
+    <Content Include="delete.sql" />
+    <Content Include="insert.sql" />
+    <Content Include="login.sql" />
+    <Content Include="Error1.css" />
+    <Content Include="Error1.html" />
+    <Content Include="Login.aspx" />
+    <Content Include="Login.css" />
+    <Content Include="Menu.aspx" />
+    <Content Include="Menu.css" />
     <Content Include="packages.config" />
-    <Content Include="UC4\Remover.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -85,7 +84,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UC4\select.sql" />
+    <Content Include="select.sql" />
+    <Content Include="ShowMemberList.aspx" />
     <Content Include="UC3\Create.aspx" />
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />
@@ -93,29 +93,36 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UC4\Dao.cs" />
-    <Compile Include="UC1\Login.aspx.cs">
+    <Compile Include="Dao.cs" />
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC1\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UC1\Menu.aspx.cs">
+    <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC1\Menu.aspx.designer.cs">
+    <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UC1\Menu.css.cs">
+    <Compile Include="Menu.css.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC1\Menu.css.designer.cs">
+    <Compile Include="Menu.css.designer.cs">
       <DependentUpon>Menu.css.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UC4\TransMng.cs" />
+    <Compile Include="ShowMemberList.aspx.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowMemberList.aspx.designer.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransMng.cs" />
     <Compile Include="UC3\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,13 +136,6 @@
     </Compile>
     <Compile Include="UC3\Insert_Success.aspx.designer.cs">
       <DependentUpon>Insert_Success.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UC4\Remover.aspx.cs">
-      <DependentUpon>Remover.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UC4\Remover.aspx.designer.cs">
-      <DependentUpon>Remover.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

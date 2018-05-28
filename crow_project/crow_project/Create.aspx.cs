@@ -92,9 +92,7 @@ namespace crow_project {
                 if (DateTime.TryParse(Emp_date, out dt)) {
                 } else {
                     //日付の再入力を求める
-                    DateValidator2.IsValid = false;
-                    
-
+                    DateValidator2.IsValid = false;                    
                 }
 
                 Dictionary<string, string> EmployeeData = new Dictionary<string, string>();

@@ -6,18 +6,18 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
+    <style link rel="stylesheet" href="Create.css" type="text/css" >
         #Select1 {
             width: 54px;
         }
     </style>
 </head>
-<body>
+<body class="body">
     <form id="form1" runat="server">
-    <h1>従業員登録</h1>
-    <p>従業員コード<asp:TextBox ID="emp_cd" runat="server"></asp:TextBox>
+    <h1 class="title">従業員登録</h1>
+    <p>従業員コード<asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
         </p>
-    <p>氏名氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
+    <p>氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
         名<asp:TextBox ID="first_nm" runat="server"></asp:TextBox><br />
         氏(フリガナ)<asp:TextBox ID="last_nm_kana" runat="server"></asp:TextBox>
         名(フリガナ)<asp:TextBox ID="first_nm_kana" runat="server"></asp:TextBox>
@@ -29,9 +29,9 @@
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/>
     </p>
-    <p>生年月日<asp:TextBox ID="birth_y" runat="server"></asp:TextBox>
-        <asp:TextBox ID="birth_m" runat="server"></asp:TextBox>
-        <asp:TextBox ID="birth_d" runat="server"></asp:TextBox>
+    <p>生年月日 年<asp:TextBox ID="birth_y" runat="server"></asp:TextBox>
+        月<asp:TextBox ID="birth_m" runat="server"></asp:TextBox>
+        日<asp:TextBox ID="birth_d" runat="server"></asp:TextBox>
    </p>
 
     <p>所属部署<select name="section">
@@ -46,9 +46,9 @@
         <option value="C4">品質管理部</option>
         </select>
     </p>
-    <p>入社日<asp:TextBox ID="emp_y" runat="server"></asp:TextBox>
-        <asp:TextBox ID="emp_m" runat="server"></asp:TextBox>
-        <asp:TextBox ID="emp_d" runat="server"></asp:TextBox>
+    <p>入社日年<asp:TextBox ID="emp_y" runat="server"></asp:TextBox>
+        月<asp:TextBox ID="emp_m" runat="server"></asp:TextBox>
+        日<asp:TextBox ID="emp_d" runat="server"></asp:TextBox>
 
 
     </p>

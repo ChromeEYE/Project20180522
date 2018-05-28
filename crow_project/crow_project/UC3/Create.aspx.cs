@@ -75,7 +75,7 @@ namespace crow_project.UC03 {
             
             ///<summary>日付の入力が正しいかチェックする</summary>
             DateTime dt;
-            if ((DateTime.TryParse(Birth_date,out dt)) && (DateTime.TryParse(Emp_date,out dt))) {
+            if ((DateTime.TryParse(Birth_date, out dt)) && (DateTime.TryParse(Emp_date, out dt))) {
 
                 ///<summary>未入力項目がないかチェック</summary>
                 if (DataCheck(values) == true) {
@@ -83,23 +83,41 @@ namespace crow_project.UC03 {
                     Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
 
                     ///<summary>Dictionaryにすべて格納する</summary>
-                    for (int i = 0; i< keys.LongCount(); i++) {
+                    for (int i = 0; i < keys.LongCount(); i++) {
 
                         EmployeeData.Add(keys[i], values[i]);
 
                     }
 
                     ///<summary>登録データベースに登録を試みる</summary>
-                    //if () { }
+                    using (TransMng mng = new TransMng()) {
+                        Dao dao = new Dao();
+                        if (dao.Insert(EmployeeData) == true) {
+                            ///<summary>成功時Insert_Success.aspxへ送る</summary> 
+                            Server.Transfer("Insert_Success.aspx");
+
+                        } else {
+                            ///<summary>失敗時Error.htmlへ送る</summary>
+                            Server.Transfer("Error.html");
+                        }
+
+                    }
+
+
+
+
+                } else {
+                    ///<summary>入力しなおし</summary>
                     
-                        ///<summary>成功時Insert_Success.aspxへ送る</summary> 
-                        ///<summary>失敗時Error.htmlへ送る</summary>
-
-
+                    Server.Transfer("Create.aspx");
 
                 }
-                ///<summary>従業員コードが4文字かチェックする</summary>
 
+
+            } else {
+                ///<summary>入力しなおし</summary>
+                errorLabel.Text = "日付の入力に誤りがあります";
+                Server.Transfer("Create.aspx");
             }
 
             ///<summary>日付の入力が誤りの場合入力をやり直す</summary> 
@@ -120,15 +138,30 @@ namespace crow_project.UC03 {
 
                     //真の場合返り値をfalseにし、繰り返し処理を終了する。
                     Result = false;
-                    break;
+                    errorLabel.Text = "未入力の項目があります";
+                    return Result;
                 }
 
                 //空でない場合何もしない
 
             }
 
+            //従業員コード、氏名がテーブル定義通りの長さか調べる
+            //if文を分ける
+            if (values[0].Length <= 4 && values[1].Length <= 16 && values[2].Length <= 16 && values[3].
+                Length <= 24 && values[4].Length <= 24) {
+
+
+
+            } else {
+                //偽の場合falseにする
+                Result = false;
+
+            }
+
             //値を返す
             return Result;
         }
+
     }
 }

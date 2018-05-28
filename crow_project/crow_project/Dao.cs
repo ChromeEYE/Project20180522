@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Text;
 
 namespace crow_project
 {
@@ -51,10 +50,10 @@ namespace crow_project
                         buffArgs.Add(reader["first_nm"].ToString());
                         buffArgs.Add(reader["last_nm_kana"].ToString());
                         buffArgs.Add(reader["first_nm_kana"].ToString());
-                        buffArgs.Add(reader["gender_cd"].ToString());
-                        buffArgs.Add(reader["birth_date"].ToString());
+                        buffArgs.Add(reader["gender_nm"].ToString());
+                        buffArgs.Add(DateTime.Parse(reader["birth_date"].ToString()).ToShortDateString());
                         buffArgs.Add(reader["section_nm"].ToString());
-                        buffArgs.Add(reader["emp_date"].ToString());
+                        buffArgs.Add(DateTime.Parse(reader["emp_date"].ToString()).ToShortDateString());
                     }
                 }
             }
@@ -106,29 +105,23 @@ namespace crow_project
 
             int execute = 0;
 
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date)", con, trn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                execute += cmd.ExecuteNonQuery();
-            }
+                cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = System.DateTime.Now;
+                cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = System.DateTime.Now;
 
-            if (execute == 9)
+                execute = cmd.ExecuteNonQuery();
+            }
+            if (execute != 0)
                 rtn = true;
 
             return rtn;

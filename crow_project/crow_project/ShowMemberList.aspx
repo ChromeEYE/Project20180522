@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="ShowMemberList.css">
+    <link rel="stylesheet" type="text/css" href="ShowMemberList.css"/>
 </head>
 <body>
     <div align="center">
@@ -24,7 +24,7 @@
                 <asp:TableCell runat="server">&emsp;&emsp;&emsp;</asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-        <p><asp:HyperLink ID="BackMenu" runat="server" NavigateUrl="Menu.aspx">メニュー画面へ</asp:HyperLink></p>
+         <p><asp:HyperLink ID="BackMenu" runat="server" NavigateUrl="Menu.aspx">メニュー画面へ</asp:HyperLink></p>
     </form>
     </div>
 </body>

@@ -16,7 +16,7 @@ namespace UC01 {
             bool flag = true;
             string userId = UserID.Text;
             string password = Password.Text;
-
+      
             using (TransMng trn = new TransMng()) {
 
                 Dao dao = new Dao();

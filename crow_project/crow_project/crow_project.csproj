@@ -89,10 +89,7 @@
     <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
     <Content Include="ShowMemberList.css" />
-    <Content Include="UC3\Create.aspx" />
     <Content Include="Create.css" />
-    <Content Include="UC3\Error.html" />
-    <Content Include="UC3\Insert_Success.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -136,12 +133,7 @@
     </Compile>
     <Compile Include="TransMng.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UC1\" />
-    <Folder Include="UC2\" />
-    <Folder Include="UC4\" />
-    <Folder Include="UC5\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

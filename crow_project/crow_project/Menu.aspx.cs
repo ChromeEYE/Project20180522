@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using UC2;
+using UC01;
+using crow_project.UC03;
+
 /// <summary>
 /// メニュー画面の処理
 /// </summary>

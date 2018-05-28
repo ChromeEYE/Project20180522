@@ -66,6 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="delete.txt" />
+    <Content Include="insert.txt" />
+    <Content Include="login.txt" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
@@ -81,12 +84,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UC03\Create.aspx" />
-    <Content Include="UC03\Error.html" />
-    <Content Include="UC03\Insert_Success.aspx" />
+    <Content Include="select.txt" />
+    <Content Include="UC3\Create.aspx" />
+    <Content Include="UC3\Create.css" />
+    <Content Include="UC3\Error.html" />
+    <Content Include="UC3\Insert_Success.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,18 +115,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransMng.cs" />
-    <Compile Include="UC03\Create.aspx.cs">
+    <Compile Include="UC3\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC03\Create.aspx.designer.cs">
+    <Compile Include="UC3\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UC03\Insert_Success.aspx.cs">
+    <Compile Include="UC3\Insert_Success.aspx.cs">
       <DependentUpon>Insert_Success.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC03\Insert_Success.aspx.designer.cs">
+    <Compile Include="UC3\Insert_Success.aspx.designer.cs">
       <DependentUpon>Insert_Success.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -12,10 +12,17 @@ namespace crow_project.UC03 {
 
         protected void Page_Load(object sender, EventArgs e) {
             ///<summary>不正アクセスをチェックする</summary>
-            
-                ///<summary>未ログイン時ログインページに送る</summary>
+
+            ///<summary>未ログイン時ログインページに送る</summary>
+
+            ///<summary>ログインしている状態ならページを表示する</summary>
+
+            //一度入力ミスがあった場合エラー文を表示する
+            try {
                 
-                ///<summary>ログインしている状態ならページを表示する</summary>
+
+            }
+
                     ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
         }
 

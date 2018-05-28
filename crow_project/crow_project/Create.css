@@ -1,17 +1,13 @@
-﻿.body {margin-left:100px;
+﻿.body {padding-left:100px;
 }
 
 .title{
-    margin-left:100px;
+    padding-left:100px;
 
 }
 
 p{
-    margin-bottom:50px;
-}
-
-span{
-    padding-left:50px;
+    padding-bottom:50px;
 }
 
 

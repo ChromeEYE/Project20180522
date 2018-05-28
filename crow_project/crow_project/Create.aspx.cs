@@ -11,6 +11,9 @@ namespace crow_project.UC03 {
         private List<string> keys = new List<string>() {"従業員コード","氏","名","氏（フリガナ）","名（フリガナ）","性別コード","生年月日","所属コード","入社日"};
 
         protected void Page_Load(object sender, EventArgs e) {
+
+            DefaultChecked.Checked = true;
+
             ///<summary>不正アクセスをチェックする</summary>
 
             ///<summary>未ログイン時ログインページに送る</summary>
@@ -18,10 +21,6 @@ namespace crow_project.UC03 {
             ///<summary>ログインしている状態ならページを表示する</summary>
 
             //一度入力ミスがあった場合エラー文を表示する
-            try {
-                
-
-            }
 
                     ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
         }
@@ -123,7 +122,7 @@ namespace crow_project.UC03 {
 
             } else {
                 ///<summary>入力しなおし</summary>
-                errorLabel.Text = "日付の入力に誤りがあります";
+                Session.Add("CreateError", "日付の入力に誤りがあります");
                 Server.Transfer("Create.aspx");
             }
 
@@ -145,7 +144,7 @@ namespace crow_project.UC03 {
 
                     //真の場合返り値をfalseにし、繰り返し処理を終了する。
                     Result = false;
-                    errorLabel.Text = "未入力の項目があります";
+                    Session.Add("CreateError","未入力の項目があります");
                     return Result;
                 }
 

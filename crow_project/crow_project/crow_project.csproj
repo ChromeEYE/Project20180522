@@ -70,7 +70,7 @@
     <Content Include="delete.sql" />
     <Content Include="Error2.html" />
     <Content Include="insert.sql" />
-    <Content Include="Insert_Success45.aspx" />
+    <Content Include="Insert_Success.aspx" />
     <Content Include="login.sql" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
@@ -107,12 +107,12 @@
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dao.cs" />
-    <Compile Include="Insert_Success45.aspx.cs">
-      <DependentUpon>Insert_Success45.aspx</DependentUpon>
+    <Compile Include="Insert_Success.aspx.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Insert_Success45.aspx.designer.cs">
-      <DependentUpon>Insert_Success45.aspx</DependentUpon>
+    <Compile Include="Insert_Success.aspx.designer.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

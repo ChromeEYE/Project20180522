@@ -1,0 +1,42 @@
+﻿
+
+.title{
+    text-align:center;
+
+}
+
+p{
+    margin-bottom:50px;
+    margin-left:70px;
+}
+
+.m1{
+
+    margin-left:40px;
+
+}
+
+.sp1{
+
+    padding-left:70px;
+
+}
+
+.sp2{
+
+    padding-left:20px;
+
+}
+
+.sp3{
+
+    padding-left:40px;
+
+}
+
+.button{
+
+    text-align:center;
+
+}
+

@@ -43,7 +43,7 @@ namespace UC2 {
                             //テーブル２番目には氏フリガナList(3) ＋ 名フリガナList(4)
                             case 1:
                             case 2:
-                                row.Cells[j].Text = member[listNum] + member[listNum + 1];
+                                row.Cells[j].Text = member[listNum + (i * MAXNUM)] + member[listNum + (i * MAXNUM) + 1];
                                 listNum += 2;
                                 break;
 

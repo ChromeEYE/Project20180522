@@ -104,7 +104,7 @@ namespace crow_project.UC03 {
 
                         } else {
                             ///<summary>失敗時Error.htmlへ送る</summary>
-                            Server.Transfer("Error.html");
+                            Server.Transfer("Error2.html");
                         }
 
                     }

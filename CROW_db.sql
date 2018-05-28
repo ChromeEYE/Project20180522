@@ -4,6 +4,9 @@ USE master
 GO
 
 DROP TABLE m_employee
+DROP TABLE m_section
+DROP TABLE m_user
+DROP TABLE m_gender
 
 -- Create the new database if it does not exist already
 IF NOT EXISTS (
@@ -13,16 +16,12 @@ IF NOT EXISTS (
 )
 CREATE DATABASE crow_emp_sys_db
 
-DROP TABLE m_section
-
 CREATE TABLE m_section(
     section_cd CHAR(2) NOT NULL PRIMARY KEY,
     seciton_nm NVARCHAR(24) NOT NULL,
     created DATETIME NOT NULL,
     updated DATETIME NOT NULL,
 )
-
-DROP TABLE m_user
 
 CREATE TABLE m_user(
     user_id VARCHAR(24) PRIMARY KEY NOT NULL,
@@ -31,15 +30,12 @@ CREATE TABLE m_user(
     updated DATETIME,
 )
 
-DROP TABLE m_gender
-
 CREATE TABLE m_gender(
     gender_cd TINYINT PRIMARY KEY NOT NULL,
     gender_nm NVARCHAR(4) NOT NULL,
     created DATETIME NOT NULL,
     updated DATETIME NOT NULL,
 )
-
 
 CREATE TABLE m_employee (
     emp_cd CHAR(4) PRIMARY KEY NOT NULL,

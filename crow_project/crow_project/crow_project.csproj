@@ -66,9 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="delete.sql" />
-    <Content Include="insert.sql" />
-    <Content Include="login.sql" />
+    <Content Include="delete.txt" />
+    <Content Include="insert.txt" />
+    <Content Include="login.txt" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
@@ -84,7 +84,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="select.sql" />
+    <Content Include="select.txt" />
     <Content Include="UC3\Create.aspx" />
     <Content Include="UC3\Create.css" />
     <Content Include="UC3\Error.html" />

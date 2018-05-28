@@ -13,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
     <h1 class="title">従業員登録</h1>
-    <p class="sp1">従業員コード&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox>
+    <p>従業員コード&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
         </p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
@@ -32,17 +32,17 @@
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/>
     </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 生年月日 <span class="sp2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 年(西暦)<asp:TextBox ID="birth_y" runat="server" Width="50px"></asp:TextBox>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 生年月日 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 年(西暦)<asp:TextBox ID="birth_y" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_y">未入力です</asp:RequiredFieldValidator>
         月(例:01,12)<asp:TextBox ID="birth_m" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_m">未入力です</asp:RequiredFieldValidator>
         日(例:01,30)<asp:TextBox ID="birth_d" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_d">未入力です</asp:RequiredFieldValidator>
         <asp:Label ID="DateParseError1" runat="server" Text="" ForeColor="Red"></asp:Label>
-        </span>
+    
    </p>
 
-    <p class="sp2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所属部署&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="section">
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所属部署&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="section">
         <option value="A1">管理部</option>
         <option value="A2">総務部</option>
         <option value="A3">人事部</option>
@@ -54,15 +54,14 @@
         <option value="C4">品質管理部</option>
         </select>
     </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入社日<span class="sp3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 年(西暦)<asp:TextBox ID="emp_y" runat="server" Width="50px"></asp:TextBox>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入社日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 年(西暦)<asp:TextBox ID="emp_y" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_y">未入力です</asp:RequiredFieldValidator>
         月(例:01,12)<asp:TextBox ID="emp_m" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_m">未入力です</asp:RequiredFieldValidator>
         日(例:01,30)<asp:TextBox ID="emp_d" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_d">未入力です</asp:RequiredFieldValidator>
         <asp:Label ID="DateParseError2" runat="server" Text="" ForeColor="Red"></asp:Label>
-        </span>
-
+      
 
     </p>
         <p><a href="Menu.aspx">戻る</a>　<asp:Button ID="CreateButton" CssClass="button" runat="server" Text="登録" OnClick="Submit_Click" /></p>

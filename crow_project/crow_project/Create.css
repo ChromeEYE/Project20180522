@@ -10,7 +10,9 @@ p{
     padding-bottom:50px;
 }
 
-button{}
+.button{
+    margin-left: 160px;
+}
 
 
 

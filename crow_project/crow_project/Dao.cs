@@ -107,7 +107,7 @@ namespace crow_project
             int execute = 0;
 
             //sqlcommandでinsert処理を実行
-            using (SqlCommand cmd = new SqlCommand("IF NOT EXISTS m_employee INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee SELECT * FROM (SELECT *) AS TMP WHERE NOT EXISTS(SELECT * FROM m_employee)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];

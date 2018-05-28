@@ -109,26 +109,17 @@ namespace crow_project
             using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                execute += cmd.ExecuteNonQuery();
+                execute = cmd.ExecuteNonQuery();
             }
-
-            if (execute == 9)
+            if (execute != 0)
                 rtn = true;
 
             return rtn;

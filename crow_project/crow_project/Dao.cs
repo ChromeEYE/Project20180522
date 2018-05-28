@@ -6,7 +6,7 @@ using System.Text;
 
 namespace crow_project
 {
-    public class Dao
+    public class Dao : System.Web.UI.Page
     {
         //コネクション変数
         private SqlConnection con;
@@ -36,7 +36,7 @@ namespace crow_project
             //List<List<string>> rtnArgs = new List<List<string>>();
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "select.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "select.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得
@@ -72,7 +72,7 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "delete.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "delete.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             int execute = 0;
@@ -103,7 +103,7 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "insert.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "insert.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             int execute = 0;
@@ -147,7 +147,7 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "login.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "login.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             string executeID = "", executePW = "";

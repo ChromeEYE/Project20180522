@@ -6,7 +6,7 @@ using System.Text;
 
 namespace crow_project
 {
-    public class Dao : System.Web.UI.Page
+    public class Dao
     {
         //コネクション変数
         private SqlConnection con;
@@ -36,11 +36,11 @@ namespace crow_project
             //List<List<string>> rtnArgs = new List<List<string>>();
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "select.sql", Encoding.GetEncoding("UTF-8"));
-            string command = sr.ReadToEnd();
+            //StreamReader sr = new StreamReader("select.sql", Encoding.GetEncoding("UTF-8"));
+            //string command = sr.ReadToEnd();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_cd, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd", con, trn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -72,13 +72,13 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "delete.sql", Encoding.GetEncoding("UTF-8"));
-            string command = sr.ReadToEnd();
+            //StreamReader sr = new StreamReader("delete.sql", Encoding.GetEncoding("UTF-8"));
+            //string command = sr.ReadToEnd();
 
             int execute = 0;
 
             //sqlコマンドでdeleteし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE code = @code", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
 
@@ -103,12 +103,12 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "insert.sql", Encoding.GetEncoding("UTF-8"));
+            StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
             string command = sr.ReadToEnd();
 
             int execute = 0;
 
-            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
                 execute += cmd.ExecuteNonQuery();
@@ -147,11 +147,11 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader(Request.PhysicalApplicationPath + "login.sql", Encoding.GetEncoding("UTF-8"));
-            string command = sr.ReadToEnd();
+            //StreamReader sr = new StreamReader("login.sql", Encoding.GetEncoding("UTF-8"));
+            //string command = sr.ReadToEnd();
 
             string executeID = "", executePW = "";
-            using (SqlCommand cmd = new SqlCommand(command, con, trn))
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
             {
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = UserID;
                 cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = Password;

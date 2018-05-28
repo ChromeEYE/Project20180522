@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css" >
+    <style link rel="stylesheet" href="Create.css" type="text/css" >
         #Select1 {
             width: 54px;
         }
@@ -24,17 +24,17 @@
         </p>
     <p>性別 
             
-        不明<input type="radio" name="gender" id="DefaultChecked" value="0" runat="server"/>
+        <span>不明<input type="radio" name="gender" value="0" runat="server"/>
         男性<input type="radio" name="gender" value="1" runat="server"/>
         女性<input type="radio" name="gender" value="2" runat="server"/>
-        その他<input type="radio" name="gender" value="9" runat="server"/>
+        その他<input type="radio" name="gender" value="9" runat="server"/></span>
     </p>
-    <p>生年月日 年<asp:TextBox ID="birth_y" runat="server"></asp:TextBox>
+    <p>生年月日 <span>年<asp:TextBox ID="birth_y" runat="server"></asp:TextBox>
         月<asp:TextBox ID="birth_m" runat="server"></asp:TextBox>
-        日<asp:TextBox ID="birth_d" runat="server"></asp:TextBox>
+        日<asp:TextBox ID="birth_d" runat="server"></asp:TextBox></span>
    </p>
 
-    <p>所属部署<select name="section">
+    <p>所属部署<span><select name="section">
         <option value="A1">管理部</option>
         <option value="A2">総務部</option>
         <option value="A3">人事部</option>
@@ -44,7 +44,7 @@
         <option value="C2">設計部</option>
         <option value="C3">開発部</option>
         <option value="C4">品質管理部</option>
-        </select>
+        </select></span>
     </p>
     <p>入社日年<asp:TextBox ID="emp_y" runat="server"></asp:TextBox>
         月<asp:TextBox ID="emp_m" runat="server"></asp:TextBox>

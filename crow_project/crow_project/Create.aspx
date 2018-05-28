@@ -13,12 +13,12 @@
 <body>
     <form id="form1" runat="server">
     <h1 class="title">従業員登録</h1>
-    <p>従業員コード<asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
+    <p class="sp1">従業員コード<asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
         </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
+    <p>氏名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         名 <asp:TextBox ID="first_nm" runat="server"></asp:TextBox><br />
-        氏(フリガナ)<asp:TextBox ID="last_nm_kana" runat="server"></asp:TextBox>
+        　　　氏(フリガナ)<asp:TextBox ID="last_nm_kana" runat="server"></asp:TextBox>
         名(フリガナ)<asp:TextBox ID="first_nm_kana" runat="server"></asp:TextBox>
         </p>
     <p>性別 

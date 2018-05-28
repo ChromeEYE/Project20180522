@@ -1,16 +1,19 @@
-﻿*{
+﻿
 
+.title{
     text-align:center;
 
 }
 
-.title{
-    padding-left:50px;
-
+p{
+    padding-left:100px;
+    padding-bottom:50px;
 }
 
-p{
-    padding-bottom:50px;
+.sp1{
+
+    padding-left:50px;
+
 }
 
 

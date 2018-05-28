@@ -3,16 +3,14 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
+    <link rel="stylesheet" href="Create.css" type="text/css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style link rel="stylesheet" href="Create.css" type="text/css" >
-        #Select1 {
-            width: 54px;
-        }
-    </style>
 </head>
-<body class="body">
+
+<body>
     <form id="form1" runat="server">
     <h1 class="title">従業員登録</h1>
     <p>従業員コード<asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox><asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
@@ -24,7 +22,7 @@
         </p>
     <p>性別 
             
-        不明<input type="radio" name="gender" value="0" runat="server" checked ="checked"/>
+        不明<input type="radio" name="gender" id="DefaultChecked" value="0" runat="server"/>
         男性<input type="radio" name="gender" value="1" runat="server"/>
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/>

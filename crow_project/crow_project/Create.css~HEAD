@@ -1,0 +1,17 @@
+﻿.body {margin-left:100px;
+}
+
+.title{
+    margin-left:100px;
+
+}
+
+p{
+    margin-bottom:50px;
+}
+
+span{
+    padding-left:50px;
+}
+
+

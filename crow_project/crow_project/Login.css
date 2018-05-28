@@ -2,6 +2,7 @@
     text-align:center;
 }
 .text{
+    text-align:center;
     padding-left:150px;
 }
 
@@ -11,10 +12,10 @@
 }
 
 #password{
-    margin-left:28px;
+    margin-left:40px;
 }
 
 #button{
-    margin-top:70px;
-    padding-left:150px;
+    margin-top:0px;
+    padding-left:420px;
 }

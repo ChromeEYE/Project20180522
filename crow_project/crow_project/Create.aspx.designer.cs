@@ -184,6 +184,15 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.Label DateParseError1;
         
         /// <summary>
+        /// DateValidator1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator1;
+        
+        /// <summary>
         /// emp_y コントロール。
         /// </summary>
         /// <remarks>
@@ -245,6 +254,15 @@ namespace crow_project {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DateParseError2;
+        
+        /// <summary>
+        /// DateValidator2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator2;
         
         /// <summary>
         /// CreateButton コントロール。

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -70,7 +69,7 @@ namespace crow_project
         /// <returns></returns>
         public bool Delete(string cd)
         {
-            bool rtn = true;
+            bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
             StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "delete.sql", Encoding.GetEncoding("UTF-8"));
@@ -88,8 +87,8 @@ namespace crow_project
                 execute = cmd.ExecuteNonQuery();
             }
 
-            if (execute == 0)
-                rtn = false;
+            if (execute != 0)
+                rtn = true;
 
             return rtn;
         }
@@ -101,7 +100,7 @@ namespace crow_project
         /// <returns></returns>
         public bool Insert(Dictionary<string, string> employeeData)
         {
-            bool rtn = true;
+            bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
             StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "insert.sql", Encoding.GetEncoding("UTF-8"));
@@ -131,8 +130,8 @@ namespace crow_project
                 execute += cmd.ExecuteNonQuery();
             }
 
-            if (execute != 9)
-                rtn = false;
+            if (execute == 9)
+                rtn = true;
 
             return rtn;
         }
@@ -145,7 +144,7 @@ namespace crow_project
         /// <returns></returns>
         public bool Login(string UserID, string Password)
         {
-            bool rtn = true;
+            bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
             StreamReader sr = new StreamReader(Directory.GetCurrentDirectory() + "login.sql", Encoding.GetEncoding("UTF-8"));
@@ -166,8 +165,8 @@ namespace crow_project
                 }
             }
 
-            if (executeID == "" || executePW == "")
-                rtn = false;
+            if (executeID != "" || executePW != "")
+                rtn = true;
 
             return rtn;
         }

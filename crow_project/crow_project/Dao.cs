@@ -40,7 +40,7 @@ namespace crow_project
             //string command = sr.ReadToEnd();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_cd, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd", con, trn))
+            using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_nm, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd INNER JOIN m_gender ON m_employee.gender_cd = m_gender.gender_cd", con, trn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -85,7 +85,6 @@ namespace crow_project
 
                 execute = cmd.ExecuteNonQuery();
             }
-
             if (execute != 0)
                 rtn = true;
 
@@ -110,26 +109,17 @@ namespace crow_project
             using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
-                execute += cmd.ExecuteNonQuery();
                 cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                execute += cmd.ExecuteNonQuery();
+                execute = cmd.ExecuteNonQuery();
             }
-
-            if (execute == 9)
+            if (execute != 0)
                 rtn = true;
 
             return rtn;

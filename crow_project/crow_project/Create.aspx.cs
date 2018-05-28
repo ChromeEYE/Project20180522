@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace crow_project.UC03 {
+namespace crow_project {
     public partial class Create : System.Web.UI.Page {
 
-        private List<string> keys = new List<string>() {"従業員コード","氏","名","氏（フリガナ）","名（フリガナ）","性別コード","生年月日","所属コード","入社日"};
+        private List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };
 
         protected void Page_Load(object sender, EventArgs e) {
 
@@ -20,14 +20,12 @@ namespace crow_project.UC03 {
 
             ///<summary>ログインしている状態ならページを表示する</summary>
 
-            //一度入力ミスがあった場合エラー文を表示する
 
-
-                    ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
+            ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
         }
 
         ///<summary>ボタンのクリック時</summary>
-        protected void Submit_Click(object sender,EventArgs e) {
+        protected void Submit_Click(object sender, EventArgs e) {
 
             ///<summary>フォームから入力された値を格納する</summary>
 
@@ -60,7 +58,7 @@ namespace crow_project.UC03 {
             string Birth_d = birth_d.Text;
 
             //年月日をまとめる
-            string Birth_date = Birth_y + "/"+ Birth_m + "/" + Birth_d;
+            string Birth_date = Birth_y + "/" + Birth_m + "/" + Birth_d;
 
             //所属部署
             string section = Request.Form["section"];
@@ -78,53 +76,48 @@ namespace crow_project.UC03 {
             string Emp_date = Emp_y + "/" + Emp_m + "/" + Emp_d;
 
             //各種入力された値をlistにまとめる
-            List<string> values = new List<string> {Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date};
-            
+            List<string> values = new List<string> { Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date };
+
             ///<summary>日付の入力が正しいかチェックする</summary>
             DateTime dt;
-            if ((DateTime.TryParse(Birth_date, out dt)) && (DateTime.TryParse(Emp_date, out dt))) {
+            if (DateTime.TryParse(Birth_date, out dt)) {
+                if (DateTime.TryParse(Emp_date, out dt)) {
+                    ///<summary>未入力項目がないかチェック</summary>
+                    if (DataCheck(values) == true) {
 
-                ///<summary>未入力項目がないかチェック</summary>
-                if (DataCheck(values) == true) {
+                        Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
 
-                    Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
+                        ///<summary>Dictionaryにすべて格納する</summary>
+                        for (int i = 0; i < keys.LongCount(); i++) {
 
-                    ///<summary>Dictionaryにすべて格納する</summary>
-                    for (int i = 0; i < keys.LongCount(); i++) {
+                            EmployeeData.Add(keys[i], values[i]);
 
-                        EmployeeData.Add(keys[i], values[i]);
-
-                    }
-
-                    ///<summary>登録データベースに登録を試みる</summary>
-                    using (TransMng mng = new TransMng()) {
-                        Dao dao = new Dao();
-                        if (dao.Insert(EmployeeData) == true) {
-                            ///<summary>成功時Insert_Success.aspxへ送る</summary> 
-                            Server.Transfer("Insert_Success.aspx");
-
-                        } else {
-                            ///<summary>失敗時Error.htmlへ送る</summary>
-                            Server.Transfer("Error2.html");
                         }
 
+                        ///<summary>登録データベースに登録を試みる</summary>
+                        using (TransMng mng = new TransMng()) {
+                            Dao dao = new Dao();
+                            if (dao.Insert(EmployeeData) == true) {
+                                ///<summary>成功時Insert_Success.aspxへ送る</summary> 
+                                Server.Transfer("Insert_Success.aspx");
+
+                            } else {
+                                ///<summary>失敗時Error.htmlへ送る</summary>
+                                Server.Transfer("Error2.html");
+                            }
+
+                        }
                     }
 
-
-
-
                 } else {
-                    ///<summary>入力しなおし</summary>
-                    
-                    Server.Transfer("Create.aspx");
+                    //日付の再入力を求める
+                    DateParseError2.Text = "日付の入力に誤りがあります";
 
                 }
-
-
             } else {
-                ///<summary>入力しなおし</summary>
-                Session.Add("CreateError", "日付の入力に誤りがあります");
-                Server.Transfer("Create.aspx");
+                //日付の再入力を求める
+                DateParseError1.Text = "日付の入力に誤りがあります";
+
             }
 
             ///<summary>日付の入力が誤りの場合入力をやり直す</summary> 
@@ -145,7 +138,7 @@ namespace crow_project.UC03 {
 
                     //真の場合返り値をfalseにし、繰り返し処理を終了する。
                     Result = false;
-                    Session.Add("CreateError","未入力の項目があります");
+                    Session.Add("CreateError", "未入力の項目があります");
                     return Result;
                 }
 
@@ -172,3 +165,4 @@ namespace crow_project.UC03 {
 
     }
 }
+

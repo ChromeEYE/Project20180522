@@ -12,6 +12,7 @@ namespace crow_project {
 
         protected void Page_Load(object sender, EventArgs e) {
 
+            //性別欄が不明にチェックが入っているようにする
             DefaultChecked.Checked = true;
 
             ///<summary>不正アクセスをチェックする</summary>
@@ -26,76 +27,74 @@ namespace crow_project {
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
+            using (TransMng mng = new TransMng()) {
+                ///<summary>フォームから入力された値を格納する</summary>
 
-            ///<summary>フォームから入力された値を格納する</summary>
+                //従業員コード
+                string Emp_code = emp_cd.Text;
 
-            //従業員コード
-            string Emp_code = emp_cd.Text;
+                //氏
+                string Last_name = last_nm.Text;
 
-            //氏
-            string Last_name = last_nm.Text;
+                //名
+                string First_name = first_nm.Text;
 
-            //名
-            string First_name = first_nm.Text;
+                //氏(フリガナ)
+                string Last_name_kana = last_nm_kana.Text;
 
-            //氏(フリガナ)
-            string Last_name_kana = last_nm_kana.Text;
+                //名(フリガナ)
+                string First_name_kana = first_nm_kana.Text;
 
-            //名(フリガナ)
-            string First_name_kana = first_nm_kana.Text;
+                //性別
+                string gender = Request.Form["gender"];
 
-            //性別
-            string gender = Request.Form["gender"];
+                //生年月日
+                //年
+                string Birth_y = birth_y.Text;
 
-            //生年月日
-            //年
-            string Birth_y = birth_y.Text;
+                //月
+                string Birth_m = birth_m.Text;
 
-            //月
-            string Birth_m = birth_m.Text;
+                //日
+                string Birth_d = birth_d.Text;
 
-            //日
-            string Birth_d = birth_d.Text;
+                //年月日をまとめる
+                string Birth_date = Birth_y + "/" + Birth_m + "/" + Birth_d;
 
-            //年月日をまとめる
-            string Birth_date = Birth_y + "/" + Birth_m + "/" + Birth_d;
+                //所属部署
+                string section = Request.Form["section"];
 
-            //所属部署
-            string section = Request.Form["section"];
+                //入社日
+                //年
+                string Emp_y = emp_y.Text;
 
-            //入社日
-            //年
-            string Emp_y = emp_y.Text;
+                //月
+                string Emp_m = emp_m.Text;
 
-            //月
-            string Emp_m = emp_m.Text;
+                //日
+                string Emp_d = emp_d.Text;
+                //年月日をまとめる
+                string Emp_date = Emp_y + "/" + Emp_m + "/" + Emp_d;
 
-            //日
-            string Emp_d = emp_d.Text;
-            //年月日をまとめる
-            string Emp_date = Emp_y + "/" + Emp_m + "/" + Emp_d;
+                //各種入力された値をlistにまとめる
+                List<string> values = new List<string> { Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date };
 
-            //各種入力された値をlistにまとめる
-            List<string> values = new List<string> { Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date };
+                ///<summary>日付の入力が正しいかチェックする</summary>
+                DateTime dt;
+                if (DateTime.TryParse(Birth_date, out dt)) {
+                    if (DateTime.TryParse(Emp_date, out dt)) {
 
-            ///<summary>日付の入力が正しいかチェックする</summary>
-            DateTime dt;
-            if (DateTime.TryParse(Birth_date, out dt)) {
-                if (DateTime.TryParse(Emp_date, out dt)) {
-                    ///<summary>未入力項目がないかチェック</summary>
-                    if (DataCheck(values) == true) {
+                            Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
 
-                        Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
+                            ///<summary>Dictionaryにすべて格納する</summary>
+                            for (int i = 0; i < keys.LongCount(); i++) {
 
-                        ///<summary>Dictionaryにすべて格納する</summary>
-                        for (int i = 0; i < keys.LongCount(); i++) {
+                                EmployeeData.Add(keys[i], values[i]);
 
-                            EmployeeData.Add(keys[i], values[i]);
+                            }
 
-                        }
+                            ///<summary>登録データベースに登録を試みる</summary>
 
-                        ///<summary>登録データベースに登録を試みる</summary>
-                        using (TransMng mng = new TransMng()) {
                             Dao dao = new Dao();
                             if (dao.Insert(EmployeeData) == true) {
                                 ///<summary>成功時Insert_Success.aspxへ送る</summary> 
@@ -106,62 +105,23 @@ namespace crow_project {
                                 Server.Transfer("Error2.html");
                             }
 
-                        }
-                    }
 
+                        
+
+                    } else {
+                        //日付の再入力を求める
+                        DateParseError2.Text = "日付の入力に誤りがあります";
+
+                    }
                 } else {
                     //日付の再入力を求める
-                    DateParseError2.Text = "日付の入力に誤りがあります";
+                    DateParseError1.Text = "日付の入力に誤りがあります";
 
                 }
-            } else {
-                //日付の再入力を求める
-                DateParseError1.Text = "日付の入力に誤りがあります";
 
             }
-
-            ///<summary>日付の入力が誤りの場合入力をやり直す</summary> 
-
         }
 
-        //未入力項目がないか調べるメソッド
-        private Boolean DataCheck(List<string> values) {
-
-            //返り値を定義
-            Boolean Result = true;
-
-            //繰り返し処理（valuesの要素数分だけ）
-            foreach (string value in values) {
-
-                //要素が空か調べる
-                if (string.IsNullOrEmpty(value) == true) {
-
-                    //真の場合返り値をfalseにし、繰り返し処理を終了する。
-                    Result = false;
-                    Session.Add("CreateError", "未入力の項目があります");
-                    return Result;
-                }
-
-                //空でない場合何もしない
-
-            }
-
-            //従業員コード、氏名がテーブル定義通りの長さか調べる
-            //if文を分ける
-            if (values[0].Length <= 4 && values[1].Length <= 16 && values[2].Length <= 16 && values[3].
-                Length <= 24 && values[4].Length <= 24) {
-
-
-
-            } else {
-                //偽の場合falseにする
-                Result = false;
-
-            }
-
-            //値を返す
-            return Result;
-        }
 
     }
 }

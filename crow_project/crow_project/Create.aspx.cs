@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace crow_project {
     public partial class Create : System.Web.UI.Page {
 
-        private List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };
+        
 
         protected void Page_Load(object sender, EventArgs e) {
 
@@ -28,8 +28,11 @@ namespace crow_project {
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
             using (TransMng mng = new TransMng()) {
+                
+                ///InsertするためのDictionary型変数のkeyのリスト
+                List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };
+                
                 ///<summary>フォームから入力された値を格納する</summary>
-
                 //従業員コード
                 string Emp_code = emp_cd.Text;
 

@@ -58,15 +58,6 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.TextBox last_nm;
         
         /// <summary>
-        /// RequiredFieldValidator2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// first_nm コントロール。
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace crow_project {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox first_nm;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// RequiredFieldValidator3 コントロール。
@@ -94,15 +94,6 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.TextBox last_nm_kana;
         
         /// <summary>
-        /// RequiredFieldValidator4 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
-        /// <summary>
         /// first_nm_kana コントロール。
         /// </summary>
         /// <remarks>
@@ -110,6 +101,15 @@ namespace crow_project {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox first_nm_kana;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// RequiredFieldValidator5 コントロール。

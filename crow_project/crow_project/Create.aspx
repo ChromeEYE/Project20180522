@@ -15,7 +15,7 @@
     <h1 class="title">従業員登録</h1>
     <p><b>従業員コード</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="[A-Za-z0-9]{0,4}">従業員コードは4文字までです</asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="[A-Za-z0-9]{0,4}">従業員コードは半角4文字までです</asp:RegularExpressionValidator>
         </p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>氏名</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏<asp:TextBox ID="last_nm" runat="server"></asp:TextBox>
         &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="last_nm" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
@@ -39,7 +39,6 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_m">未入力です</asp:RequiredFieldValidator>
         日(例:01,30)<asp:TextBox ID="birth_d" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_d">未入力です</asp:RequiredFieldValidator>
-        <asp:Label ID="DateParseError1" runat="server" Text="" ForeColor="Red"></asp:Label>
         <asp:CustomValidator ID="DateValidator1" runat="server" ErrorMessage="CustomValidator" ForeColor="Red">日付の入力に誤りがあります</asp:CustomValidator>
     
    </p>
@@ -62,7 +61,6 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_m">未入力です</asp:RequiredFieldValidator>
         日(例:01,30)<asp:TextBox ID="emp_d" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_d">未入力です</asp:RequiredFieldValidator>
-        <asp:Label ID="DateParseError2" runat="server" Text="" ForeColor="Red"></asp:Label>
       
 
         <asp:CustomValidator ID="DateValidator2" runat="server" ErrorMessage="CustomValidator" ForeColor="Red">日付の入力に誤りがあります</asp:CustomValidator>

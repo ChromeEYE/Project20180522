@@ -20,16 +20,13 @@ namespace crow_project {
             ///<summary>未ログイン時ログインページに送る</summary>
 
             ///<summary>ログインしている状態ならページを表示する</summary>
-
-
-            ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
         }
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
             using (TransMng mng = new TransMng()) {
 
-                ///InsertするためのDictionary型変数のkeyのリスト
+                ///InsertするためのDictionary型変数のkeyのリスト keys
                 List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };
 
                 ///<summary>フォームから入力された値を格納する</summary>
@@ -79,7 +76,7 @@ namespace crow_project {
                 //年月日をまとめる
                 string Emp_date = Emp_y + "/" + Emp_m + "/" + Emp_d;
 
-                //各種入力された値をlistにまとめる
+                //各種入力された値をlistにまとめる values
                 List<string> values = new List<string> { Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date };
 
                 ///<summary>日付の入力が正しいかチェックする</summary>
@@ -101,12 +98,15 @@ namespace crow_project {
                 }
 
                 if (TimeInput == true) {
-
+                    
+                    ///<summary>インサートするテーブルの各キーとそれに対応する値の組み合わせを格納するDictionaryを宣言</summary>
+                    /// <summary>key:keysの各要素 value:valuesの各要素</summary>
                     Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
 
-                    ///<summary>Dictionaryにすべて格納する</summary>
+                    ///<summary>宣言したDictionaryにすべて格納する</summary>
                     for (int i = 0; i < keys.LongCount(); i++) {
 
+                        
                         EmployeeData.Add(keys[i], values[i]);
 
                     }

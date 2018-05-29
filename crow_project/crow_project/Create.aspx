@@ -37,7 +37,7 @@
         </p>
 
 
-    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性別</b><span style="padding-left:75px">不明<input type="radio" name="gender" id="DefaultChecked" value="0" runat="server"/>
+    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性別</b><span style="padding-left:80px">不明<input type="radio" name="gender" id="DefaultChecked" value="0" runat="server"/>
         男性<input type="radio" name="gender" value="1" runat="server"/>
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/></span>

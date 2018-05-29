@@ -12,7 +12,7 @@ namespace UC2 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
-            //列数
+            //テーブルの列数
             const int TABLENUM = 7;
             //データベースの列数
             const int MAXNUM = 9;

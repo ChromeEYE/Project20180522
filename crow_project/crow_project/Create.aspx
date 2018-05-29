@@ -22,6 +22,8 @@
       <p><b>従業員コード</b><span style="padding-left:100px"><asp:TextBox ID="emp_cd" runat="server" Width="61px"></asp:TextBox>
         </span>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
+        </p>
+      <p>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="[A-Za-z0-9]{0,4}">従業員コードは半角4文字までです</asp:RegularExpressionValidator>
         </p>
     <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏名</b><span style="padding-left:96px"></span>氏<asp:TextBox ID="last_nm" runat="server" Width="135px"></asp:TextBox><span style="padding-left:90px">
@@ -35,6 +37,7 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="first_nm_kana" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator></span>
         </span>
         </p>
+      <p>&nbsp;</p>
 
 
     <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 性別</b><span style="padding-left:80px">不明<input type="radio" name="gender" id="DefaultChecked" value="0" runat="server"/>
@@ -42,6 +45,7 @@
         女性<input type="radio" name="gender" value="2" runat="server"/>
         その他<input type="radio" name="gender" value="9" runat="server"/></span>
     </p>
+      <p>&nbsp;</p>
 
 
     <p><b>&nbsp;&nbsp;&nbsp;&nbsp; 生年月日</b><span style="padding-left:45px">年(西暦)<asp:TextBox ID="birth_y" runat="server" Width="50px"></asp:TextBox>
@@ -50,6 +54,9 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_m">未入力です</asp:RequiredFieldValidator>
         日(例:01,30)<asp:TextBox ID="birth_d" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_d">未入力です</asp:RequiredFieldValidator>
+    </span>
+   </p>
+      <p><span style="padding-left:45px">
         <asp:CustomValidator ID="DateValidator1" runat="server" ErrorMessage="CustomValidator" ForeColor="Red">日付の入力に誤りがあります</asp:CustomValidator>
     </span>
    </p>
@@ -66,6 +73,7 @@
         <option value="C4">品質管理部</option>
         </select></span>
     </p>
+      <p>&nbsp;</p>
     <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 入社日</b><span style="padding-left:45px"></span>年(西暦)<asp:TextBox ID="emp_y" runat="server" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_y">未入力です</asp:RequiredFieldValidator>
         月(例:01,12)<asp:TextBox ID="emp_m" runat="server" Width="50px"></asp:TextBox>
@@ -74,10 +82,14 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_d">未入力です</asp:RequiredFieldValidator>
       
 
+    </p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+
         <asp:CustomValidator ID="DateValidator2" runat="server" ErrorMessage="CustomValidator" ForeColor="Red">日付の入力に誤りがあります</asp:CustomValidator>
       
 
-    </p>
+    &nbsp;</p>
 
     <a href="Menu.aspx">戻る</a>　<asp:Button ID="CreateButton" CssClass="button" runat="server" Text="登録" OnClick="Submit_Click" Height="42px" Width="80px" />
     

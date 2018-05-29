@@ -122,6 +122,7 @@ namespace crow_project {
                     Dao dao = new Dao();
                     if (dao.Insert(employeeData) == true)
                     {
+                        mng.Commit();
                         ///<summary>成功時Insert_Success.aspxへ送る</summary> 
                         Server.Transfer("Insert_Success.aspx");
 
@@ -132,7 +133,7 @@ namespace crow_project {
                         Server.Transfer("Error2.html");
                     }
                 }
-                mng.Commit();
+
             }
         }
     }

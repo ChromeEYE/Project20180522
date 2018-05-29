@@ -66,15 +66,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Create.aspx" />
     <Content Include="delete.sql" />
+    <Content Include="Error2.html" />
     <Content Include="insert.sql" />
+    <Content Include="Insert_Success.aspx" />
     <Content Include="login.sql" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
     <Content Include="Logout.html" />
+<<<<<<< HEAD
     <Content Include="Logout_style.css" />
+=======
+>>>>>>> 181c46f10aa69a560a88d238d19c0ea342202bdc
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />
@@ -89,16 +95,29 @@
     <Content Include="Remover.aspx" />
     <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
-    <Content Include="Create.aspx" />
+    <Content Include="ShowMemberList.css" />
     <Content Include="Create.css" />
-    <Content Include="Error.html" />
-    <Content Include="Insert_Success.aspx" />
+    <Content Include="InsertSuccess.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dao.cs" />
+    <Compile Include="Insert_Success.aspx.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insert_Success.aspx.designer.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,24 +154,8 @@
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransMng.cs" />
-    <Compile Include="Create.aspx.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Create.aspx.designer.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Insert_Success.aspx.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Insert_Success.aspx.designer.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UC3\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

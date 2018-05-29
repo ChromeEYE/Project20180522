@@ -1,8 +1,8 @@
-﻿h1{
+﻿body{
     text-align:center;
 }
 .text{
-    text-align:center;
+
     padding-left:150px;
 }
 
@@ -11,10 +11,7 @@
 
 }
 
-#password{
-    margin-left:40px;
+#password {
+    margin-left: 40px;
 }
 
-#button{
-    padding-left:750px;
-}

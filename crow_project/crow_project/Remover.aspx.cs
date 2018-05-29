@@ -6,19 +6,23 @@ namespace crow_project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Dao dao = new Dao();
-            bool flg = dao.Delete(Session["delete"].ToString());
+            using (TransMng trn = new TransMng())
+            {
+                Dao dao = new Dao();
+                bool flg = dao.Delete(Session["delete"].ToString());
 
-            if (flg) 
-            {
-                Label1.Text = "Complete!";
-                Label2.Text = "従業員情報が削除されました";
-            }
-            else
-            {
-                Label1.Text = "Error!";
-                Label2.Text = "削除できません";
-                Label3.Text = "該当する従業員情報は既に削除されています";
+                //Delete時の返答行数で可否を問い、表示する文字列を決定する
+                if (flg)
+                {
+                    Label1.Text = "Complete!";
+                    Label2.Text = "従業員情報が削除されました";
+                }
+                else
+                {
+                    Label1.Text = "Error!";
+                    Label2.Text = "削除できません";
+                    Label3.Text = "該当する従業員情報は既に削除されています";
+                }
             }
         }
     }

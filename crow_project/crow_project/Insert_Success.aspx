@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Insert_Success.aspx.cs" Inherits="crow_project.UC03.Insert_Success" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Insert_Success.aspx.cs" Inherits="crow_project.Insert_Success" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="InsertSuccess.css" type="text/css"/> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>

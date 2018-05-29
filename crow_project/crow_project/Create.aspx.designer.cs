@@ -7,7 +7,7 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace crow_project.UC03 {
+namespace crow_project {
     
     
     public partial class Create {
@@ -31,13 +31,22 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox emp_cd;
         
         /// <summary>
-        /// errorLabel コントロール。
+        /// RequiredFieldValidator1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// last_nm コントロール。
@@ -49,6 +58,15 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox last_nm;
         
         /// <summary>
+        /// RequiredFieldValidator2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// first_nm コントロール。
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace crow_project.UC03 {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox first_nm;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// last_nm_kana コントロール。
@@ -67,6 +94,15 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox last_nm_kana;
         
         /// <summary>
+        /// RequiredFieldValidator4 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// first_nm_kana コントロール。
         /// </summary>
         /// <remarks>
@@ -74,6 +110,24 @@ namespace crow_project.UC03 {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox first_nm_kana;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
+        /// DefaultChecked コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton DefaultChecked;
         
         /// <summary>
         /// birth_y コントロール。
@@ -85,6 +139,15 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox birth_y;
         
         /// <summary>
+        /// RequiredFieldValidator6 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        
+        /// <summary>
         /// birth_m コントロール。
         /// </summary>
         /// <remarks>
@@ -92,6 +155,15 @@ namespace crow_project.UC03 {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox birth_m;
+        
+        /// <summary>
+        /// RequiredFieldValidator7 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
         /// birth_d コントロール。
@@ -103,6 +175,33 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox birth_d;
         
         /// <summary>
+        /// RequiredFieldValidator8 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        
+        /// <summary>
+        /// DateParseError1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DateParseError1;
+        
+        /// <summary>
+        /// DateValidator1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator1;
+        
+        /// <summary>
         /// emp_y コントロール。
         /// </summary>
         /// <remarks>
@@ -110,6 +209,15 @@ namespace crow_project.UC03 {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emp_y;
+        
+        /// <summary>
+        /// RequiredFieldValidator9 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
         
         /// <summary>
         /// emp_m コントロール。
@@ -121,6 +229,15 @@ namespace crow_project.UC03 {
         protected global::System.Web.UI.WebControls.TextBox emp_m;
         
         /// <summary>
+        /// RequiredFieldValidator10 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        
+        /// <summary>
         /// emp_d コントロール。
         /// </summary>
         /// <remarks>
@@ -128,6 +245,33 @@ namespace crow_project.UC03 {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox emp_d;
+        
+        /// <summary>
+        /// RequiredFieldValidator11 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
+        
+        /// <summary>
+        /// DateParseError2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DateParseError2;
+        
+        /// <summary>
+        /// DateValidator2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator2;
         
         /// <summary>
         /// CreateButton コントロール。

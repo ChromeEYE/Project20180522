@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
-using System.Text;
 
 namespace crow_project
 {
@@ -39,8 +38,8 @@ namespace crow_project
             //StreamReader sr = new StreamReader("select.sql", Encoding.GetEncoding("UTF-8"));
             //string command = sr.ReadToEnd();
 
-            //sqlコマンドでselectし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_cd, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd", con, trn))
+            //sqlコマンドでselectし、従業員マスタの全情報を取得・buffargsに代入
+            using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_nm, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd INNER JOIN m_gender ON m_employee.gender_cd = m_gender.gender_cd", con, trn))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -51,11 +50,10 @@ namespace crow_project
                         buffArgs.Add(reader["first_nm"].ToString());
                         buffArgs.Add(reader["last_nm_kana"].ToString());
                         buffArgs.Add(reader["first_nm_kana"].ToString());
-                        buffArgs.Add(reader["gender_cd"].ToString());
-                        buffArgs.Add(reader["birth_date"].ToString());
+                        buffArgs.Add(reader["gender_nm"].ToString());
+                        buffArgs.Add(DateTime.Parse(reader["birth_date"].ToString()).ToShortDateString());
                         buffArgs.Add(reader["section_nm"].ToString());
-
-                        trn.Commit();
+                        buffArgs.Add(DateTime.Parse(reader["emp_date"].ToString()).ToShortDateString());
                     }
                 }
             }
@@ -77,8 +75,8 @@ namespace crow_project
 
             int execute = 0;
 
-            //sqlコマンドでdeleteし、従業員マスタの全情報を取得
-            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE code = @code", con, trn))
+            //sqlコマンドでdeleteを実行
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE emp_cd = @code", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
 
@@ -86,7 +84,7 @@ namespace crow_project
 
                 execute = cmd.ExecuteNonQuery();
             }
-
+            //変更行数があった場合返り値をtrueに
             if (execute != 0)
                 rtn = true;
 
@@ -103,34 +101,39 @@ namespace crow_project
             bool rtn = false;
 
             //外部ファイル化したsqlコマンドをstringで呼び出し
-            StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
-            string command = sr.ReadToEnd();
+            //StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
+            //string command = sr.ReadToEnd();
 
             int execute = 0;
 
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
+            try
             {
-                cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
-                execute += cmd.ExecuteNonQuery();
-                cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
-                execute += cmd.ExecuteNonQuery();
-            }
+                //sqlcommandでinsert処理を実行
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee VALUES(@code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn))
+                {
+                    cmd.Parameters.Add("@code", SqlDbType.Char).Value = employeeData["従業員コード"];
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = employeeData["氏"];
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = employeeData["名"];
+                    cmd.Parameters.Add("@lastNmKana", SqlDbType.NVarChar).Value = employeeData["氏（フリガナ）"];
+                    cmd.Parameters.Add("@firstNmKana", SqlDbType.NVarChar).Value = employeeData["名（フリガナ）"];
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = employeeData["性別コード"];
+                    cmd.Parameters.Add("@birthDay", SqlDbType.Date).Value = employeeData["生年月日"];
+                    cmd.Parameters.Add("@section", SqlDbType.Char).Value = employeeData["所属コード"];
+                    cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
+                    cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
+                    cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
 
-            if (execute == 9)
+                    trn.Commit();
+
+                    execute = cmd.ExecuteNonQuery();
+                }
+            }
+            catch
+            {
+
+            }
+            //見つかった場合返り値をtureに
+            if (execute != 0)
                 rtn = true;
 
             return rtn;
@@ -151,6 +154,8 @@ namespace crow_project
             //string command = sr.ReadToEnd();
 
             string executeID = "", executePW = "";
+
+            //sqlcommandでIDとパスワードを捜索
             using (SqlCommand cmd = new SqlCommand("SELECT * FROM m_user WHERE user_id = @ID AND password = @password", con, trn))
             {
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = UserID;
@@ -165,6 +170,7 @@ namespace crow_project
                 }
             }
 
+            //見つかった場合返り値をtrueに
             if (executeID != "" || executePW != "")
                 rtn = true;
 

@@ -22,7 +22,7 @@
             <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
         </p>
         <br /><br />
-        <a href="Menu.aspx">従業員一覧に戻る</a>
+        <a href="ShowMemberList.aspx">従業員一覧に戻る</a>
     </div>
     </form>
 </body>

@@ -88,7 +88,6 @@
   <ItemGroup>
     <Content Include="Remover.aspx" />
     <Content Include="ShowMemberList.aspx" />
-    <Content Include="ShowMemberList.css" />
     <Content Include="Create.css" />
     <Content Include="InsertSuccess.css" />
     <Content Include="Web.config">

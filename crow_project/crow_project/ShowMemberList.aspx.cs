@@ -38,6 +38,7 @@ namespace UC2 {
                     Table1.Rows.Add(row);
                     row.Cells.AddRange(new TableCell[] { new TableCell(), new TableCell(), new TableCell(), new TableCell(), new TableCell(), new TableCell(), new TableCell(), new TableCell() });
                     for (int j = 0; j <= TABLENUM; j++) {
+                        row.Cells[j].HorizontalAlign = HorizontalAlign.Center;
                         switch (j) {
                             //テーブル１番目には氏List(1) ＋ 名List(2)
                             //テーブル２番目には氏フリガナList(3) ＋ 名フリガナList(4)
@@ -50,7 +51,7 @@ namespace UC2 {
                             //テーブルの最後に"削除"ボタンの作成
                             case TABLENUM:
                                 Button deleteButton = new Button();
-                                deleteButton.Text = "削除";
+                                deleteButton.Text = " "+"削除";
                                 //行のコード情報（削除したい従業員コード）
                                 deleteButton.ID = member[i * MAXNUM];
                                 deleteButton.Click += new EventHandler(Remover_ButtonClick);
@@ -59,7 +60,7 @@ namespace UC2 {
 
                             //Listの情報をテーブルに挿入
                             default:
-                                row.Cells[j].Text = member[listNum + (i * MAXNUM)];
+                                row.Cells[j].Text =  member[listNum + (i * MAXNUM)];
                                 listNum++;
                                 break;
                         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,7 @@ namespace crow_project {
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
+            SqlTransaction trn = TranMng.Transaction;
             using (TranMng mng = new TranMng()) {              
                 ///<summary>フォームから入力された生年月日、入社日を格納する</summary>
                 //生年月日
@@ -122,7 +124,7 @@ namespace crow_project {
 
                 }
 
-                mng.commit();
+                trn.Commit();
             }
         }
 

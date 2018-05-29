@@ -12,9 +12,9 @@ namespace UC2 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
-            //テーブル数
+            //列数
             const int TABLENUM = 7;
-            //行の移り変わりの数
+            //データベースの列数
             const int MAXNUM = 9;
             //参照したいListの数
             int listNum;
@@ -68,6 +68,7 @@ namespace UC2 {
                 }
             }
         }
+
         /// <summary>
         /// 削除ボタンを押したときのイベント
         /// </summary>
@@ -76,7 +77,7 @@ namespace UC2 {
         protected void Remover_ButtonClick(object sender, EventArgs e) {
             string code = ((Button)sender).ID;
             Session.Add("delete", code);
-            Response.Redirect("Remover.aspx");
+            Server.Transfer("Remover.aspx");
         }
     }
 }

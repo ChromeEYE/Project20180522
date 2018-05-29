@@ -67,11 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Create.aspx" />
-    <Content Include="delete.sql" />
     <Content Include="Error2.html" />
-    <Content Include="insert.sql" />
     <Content Include="Insert_Success.aspx" />
-    <Content Include="login.sql" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
@@ -90,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Remover.aspx" />
-    <Content Include="select.sql" />
     <Content Include="ShowMemberList.aspx" />
     <Content Include="ShowMemberList.css" />
     <Content Include="Create.css" />
@@ -150,7 +146,7 @@
     <Compile Include="ShowMemberList.aspx.designer.cs">
       <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TransMng.cs" />
+    <Compile Include="TranMng.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

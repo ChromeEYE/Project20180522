@@ -11,14 +11,19 @@ namespace crow_project
     /// <version>1.00</version>
     public class TranMng : IDisposable
     {
-
-        /// <summary>排他制御</summary>
+        /// <summary>
+        /// 排他制御
+        /// </summary>
         private static ReaderWriterLock @lock = new ReaderWriterLock();
 
-        /// <summary>コンテキスト</summary>
+        /// <summary>
+        /// コンテキスト
+        /// </summary>
         private static Dictionary<int, KeyValuePair<SqlConnection, SqlTransaction>> context;
 
-        /// <summary>トランザクション</summary>
+        /// <summary>
+        /// トランザクション
+        /// </summary>
         public static SqlTransaction Transaction
         {
             get
@@ -55,6 +60,40 @@ namespace crow_project
             finally
             {
                 @lock.ReleaseWriterLock();
+            }
+        }
+
+        /// <summary>
+        /// コミット
+        /// </summary>
+        public void Commit()
+        {
+            int id = Thread.CurrentThread.ManagedThreadId;
+            try
+            {
+                @lock.AcquireReaderLock(Timeout.Infinite);
+                context[id].Value.Commit();
+            }
+            finally
+            {
+                @lock.ReleaseReaderLock();
+            }
+        }
+
+        /// <summary>
+        /// ロールバック
+        /// </summary>
+        public void Rollback()
+        {
+            int id = Thread.CurrentThread.ManagedThreadId;
+            try
+            {
+                @lock.AcquireReaderLock(Timeout.Infinite);
+                context[id].Value.Rollback();
+            }
+            finally
+            {
+                @lock.ReleaseReaderLock();
             }
         }
 

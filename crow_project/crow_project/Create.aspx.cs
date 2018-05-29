@@ -84,44 +84,46 @@ namespace crow_project {
 
                 ///<summary>日付の入力が正しいかチェックする</summary>
                 DateTime dt;
+
+                Boolean TimeInput = true;
+
                 if (DateTime.TryParse(Birth_date, out dt)) {
                 } else {
                     //日付の再入力を求める
+                    TimeInput = false;
                     DateValidator1.IsValid = false;
                 }
                 if (DateTime.TryParse(Emp_date, out dt)) {
                 } else {
                     //日付の再入力を求める
-                    DateValidator2.IsValid = false;                    
+                    TimeInput = false;
+                    DateValidator2.IsValid = false;
                 }
 
-                Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
+                if (TimeInput == true) {
 
-                ///<summary>Dictionaryにすべて格納する</summary>
-                for (int i = 0; i < keys.LongCount(); i++) {
+                    Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
 
-                    EmployeeData.Add(keys[i], values[i]);
+                    ///<summary>Dictionaryにすべて格納する</summary>
+                    for (int i = 0; i < keys.LongCount(); i++) {
+
+                        EmployeeData.Add(keys[i], values[i]);
+
+                    }
+
+                    ///<summary>登録データベースに登録を試みる</summary>
+
+                    Dao dao = new Dao();
+                    if (dao.Insert(EmployeeData) == true) {
+                        ///<summary>成功時Insert_Success.aspxへ送る</summary> 
+                        Server.Transfer("Insert_Success.aspx");
+
+                    } else {
+                        ///<summary>失敗時Error.htmlへ送る</summary>
+                        Server.Transfer("Error2.html");
+                    }
 
                 }
-
-                ///<summary>登録データベースに登録を試みる</summary>
-
-                Dao dao = new Dao();
-                if (dao.Insert(EmployeeData) == true) {
-                    ///<summary>成功時Insert_Success.aspxへ送る</summary> 
-                    Server.Transfer("Insert_Success.aspx");
-
-                } else {
-                    ///<summary>失敗時Error.htmlへ送る</summary>
-                    Server.Transfer("Error2.html");
-                }
-
-
-
-
-
-
-
 
 
             }

@@ -14,11 +14,11 @@
         
         <p>&nbsp;</p>
 
-         <p class="text">  ユーザID <span id="user"><asp:TextBox ID="UserID" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="ユーザIDが未入力です" ControlToValidate="UserID" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
+         <p class="text">  ユーザID <span id="user"><asp:TextBox ID="UserID" runat="server"></asp:TextBox>&nbsp; <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="ユーザIDが未入力です" ControlToValidate="UserID" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
              </span>
              </p>
         <p class="text"> 
-           パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox></span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator></p>
+           パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox>&nbsp; </span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator></p>
 
          <br />
         <span id="button"><asp:Button ID="LoginButton" runat="server" Text="ログイン" OnClick="LoginButton_Click" /></span>

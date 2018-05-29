@@ -9,7 +9,7 @@ namespace crow_project
     /// <summary>トランザクションマネージャ</summary>
     /// <author>emBex Education</author>
     /// <version>1.00</version>
-    public class TransMng : IDisposable
+    public class TranMng : IDisposable
     {
 
         /// <summary>排他制御</summary>
@@ -37,7 +37,7 @@ namespace crow_project
         }
 
         /// <summary>コネクションマネージャ</summary>
-        public TransMng()
+        public TranMng()
         {
             int id = Thread.CurrentThread.ManagedThreadId;
             try

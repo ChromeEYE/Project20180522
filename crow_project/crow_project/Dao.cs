@@ -18,8 +18,8 @@ namespace crow_project
         /// </summary>
         public Dao()
         {
-            con = TransMng.Transaction.Connection;
-            trn = TransMng.Transaction;
+            con = TranMng.Transaction.Connection;
+            trn = TranMng.Transaction;
         }
 
         /// <summary>

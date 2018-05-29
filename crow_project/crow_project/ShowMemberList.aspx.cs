@@ -19,7 +19,7 @@ namespace UC2 {
             //参照したいListの数
             int listNum;
 
-            using (TransMng trn = new TransMng()) {
+            using (TranMng trn = new TranMng()) {
 
                 //DAOのインスタンス
                 Dao dao = new Dao();

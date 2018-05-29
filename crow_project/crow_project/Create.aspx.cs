@@ -24,7 +24,7 @@ namespace crow_project {
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
-            using (TransMng mng = new TransMng()) {
+            using (TranMng mng = new TranMng()) {
 
                 ///InsertするためのDictionary型変数のkeyのリスト keys
                 List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };

@@ -6,7 +6,7 @@ namespace crow_project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (TransMng trn = new TransMng())
+            using (TranMng trn = new TranMng())
             {
                 Dao dao = new Dao();
                 bool flg = dao.Delete(Session["delete"].ToString());

@@ -76,7 +76,7 @@ namespace crow_project
             int execute = 0;
 
             //sqlコマンドでdeleteを実行
-            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE EXISTS (SELECT * FROM m_employee emp_cd = @code)", con, trn))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE emp_cd = @code)", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
 
@@ -107,7 +107,7 @@ namespace crow_project
             int execute = 0;
 
             //sqlcommandでinsert処理を実行
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee SELECT * FROM (SELECT @code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update) AS TMP WHERE NOT EXISTS (SELECT * FROM m_employee WHERE emp_cd = @code)", con, trn)) 
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO m_employee  (SELECT @code, @lastName, @firstName, @lastNmKana, @firstNmKana, @gender, @birthDay, @section, @date, @createdate, @update)", con, trn)) 
             {
                 try
                 {

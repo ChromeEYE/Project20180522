@@ -11,9 +11,12 @@
 <body>
     <form id="form1" runat="server">
     <h1>メニュー</h1>
-        <p><asp:Button ID="entry" runat="server" Text="従業員登録メニュー" Height="30px" Width="200px" OnClick="entry_Click" /></p>
-        <p><asp:Button ID="list" runat="server" Text="従業員一覧表示" Height="30px" Width="200px" OnClick="list_Click" /></p>
-        <p><asp:Button ID="logout" runat="server" Text="ログアウト" Height="30px" Width="200px" OnClick="logout_Click" /></p>        
+        <p>&nbsp;</p>
+        <p><asp:Button ID="entry" runat="server" Text="従業員登録メニュー" Height="40px" Width="200px" OnClick="entry_Click" /></p>
+        <p>&nbsp;</p>
+        <p><asp:Button ID="list" runat="server" Text="従業員一覧表示" Height="40px" Width="200px" OnClick="list_Click" /></p>
+        <p>&nbsp;</p>
+        <p><asp:Button ID="logout" runat="server" Text="ログアウト" Height="40px" Width="200px" OnClick="logout_Click" /></p>        
 
     </form>
 </body>

@@ -10,10 +10,10 @@ namespace crow_project
             using (TranMng trn = new TranMng())
             {
                 Dao dao = new Dao();
-                bool flg = dao.Delete(Session["delete"].ToString());
+                bool deleteFlg = dao.Delete(Session["delete"].ToString());
 
                 //Delete時の返答行数で可否を問い、表示する文字列を決定する
-                if (flg)
+                if (deleteFlg)
                 {
                     Label1.Text = "Complete!";
                     Label2.Text = "従業員情報が削除されました";

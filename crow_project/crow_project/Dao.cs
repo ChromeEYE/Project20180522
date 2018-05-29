@@ -29,14 +29,7 @@ namespace crow_project
         public List<string> Show()
         {
             //string型Listのバッファ
-            List<string> buffArgs = new List<string>();
-
-            //返り値用変数
-            //List<List<string>> rtnArgs = new List<List<string>>();
-
-            //外部ファイル化したsqlコマンドをstringで呼び出し
-            //StreamReader sr = new StreamReader("select.sql", Encoding.GetEncoding("UTF-8"));
-            //string command = sr.ReadToEnd();
+            List<string> rtnArgs = new List<string>();
 
             //sqlコマンドでselectし、従業員マスタの全情報を取得・buffargsに代入
             using (SqlCommand cmd = new SqlCommand("SELECT emp_cd, last_nm, first_nm, last_nm_kana, first_nm_kana, gender_nm, birth_date, section_nm, emp_date FROM m_employee INNER JOIN m_section ON m_employee.section_cd = m_section.section_cd INNER JOIN m_gender ON m_employee.gender_cd = m_gender.gender_cd", con, trn))
@@ -45,19 +38,19 @@ namespace crow_project
                 {
                     while (reader.Read())
                     {
-                        buffArgs.Add(reader["emp_cd"].ToString());
-                        buffArgs.Add(reader["last_nm"].ToString());
-                        buffArgs.Add(reader["first_nm"].ToString());
-                        buffArgs.Add(reader["last_nm_kana"].ToString());
-                        buffArgs.Add(reader["first_nm_kana"].ToString());
-                        buffArgs.Add(reader["gender_nm"].ToString());
-                        buffArgs.Add(DateTime.Parse(reader["birth_date"].ToString()).ToShortDateString());
-                        buffArgs.Add(reader["section_nm"].ToString());
-                        buffArgs.Add(DateTime.Parse(reader["emp_date"].ToString()).ToShortDateString());
+                        rtnArgs.Add(reader["emp_cd"].ToString());
+                        rtnArgs.Add(reader["last_nm"].ToString());
+                        rtnArgs.Add(reader["first_nm"].ToString());
+                        rtnArgs.Add(reader["last_nm_kana"].ToString());
+                        rtnArgs.Add(reader["first_nm_kana"].ToString());
+                        rtnArgs.Add(reader["gender_nm"].ToString());
+                        rtnArgs.Add(DateTime.Parse(reader["birth_date"].ToString()).ToShortDateString());
+                        rtnArgs.Add(reader["section_nm"].ToString());
+                        rtnArgs.Add(DateTime.Parse(reader["emp_date"].ToString()).ToShortDateString());
                     }
                 }
             }
-            return buffArgs;
+            return rtnArgs;
         }
 
         /// <summary>
@@ -69,19 +62,13 @@ namespace crow_project
         {
             bool rtn = false;
 
-            //外部ファイル化したsqlコマンドをstringで呼び出し
-            //StreamReader sr = new StreamReader("delete.sql", Encoding.GetEncoding("UTF-8"));
-            //string command = sr.ReadToEnd();
-
             int execute = 0;
 
             //sqlコマンドでdeleteを実行
             using (SqlCommand cmd = new SqlCommand("DELETE FROM m_employee WHERE emp_cd = @code", con, trn))
             {
                 cmd.Parameters.Add("@code", SqlDbType.NVarChar).Value = cd;
-
-                trn.Commit();
-
+    
                 execute = cmd.ExecuteNonQuery();
             }
             //変更行数があった場合返り値をtrueに
@@ -99,10 +86,6 @@ namespace crow_project
         public bool Insert(Dictionary<string, string> employeeData)
         {
             bool rtn = false;
-
-            //外部ファイル化したsqlコマンドをstringで呼び出し
-            //StreamReader sr = new StreamReader("insert.sql", Encoding.GetEncoding("UTF-8"));
-            //string command = sr.ReadToEnd();
 
             int execute = 0;
 
@@ -122,8 +105,6 @@ namespace crow_project
                     cmd.Parameters.Add("@date", SqlDbType.Date).Value = employeeData["入社日"];
                     cmd.Parameters.Add("@createdate", SqlDbType.DateTime).Value = DateTime.Now;
                     cmd.Parameters.Add("@update", SqlDbType.DateTime).Value = DateTime.Now;
-
-                    trn.Commit();
 
                     execute = cmd.ExecuteNonQuery();
                 }
@@ -149,10 +130,6 @@ namespace crow_project
         {
             bool rtn = false;
 
-            //外部ファイル化したsqlコマンドをstringで呼び出し
-            //StreamReader sr = new StreamReader("login.sql", Encoding.GetEncoding("UTF-8"));
-            //string command = sr.ReadToEnd();
-
             string executeID = "", executePW = "";
 
             //sqlcommandでIDとパスワードを捜索
@@ -171,7 +148,7 @@ namespace crow_project
             }
 
             //見つかった場合返り値をtrueに
-            if (!string.IsNullOrEmpty(executeID) || executePW != "")
+            if (!string.IsNullOrEmpty(executeID) || !string.IsNullOrEmpty(executePW)) 
                 rtn = true;
 
             return rtn;

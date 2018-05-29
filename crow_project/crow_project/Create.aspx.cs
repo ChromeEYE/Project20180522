@@ -82,7 +82,7 @@ namespace crow_project {
                 ///<summary>日付の入力が正しいかチェックする</summary>
                 DateTime dt;
 
-                Boolean TimeInput = true;
+                bool TimeInput = true;
 
                 if (DateTime.TryParse(Birth_date, out dt)) {
                 } else {
@@ -101,20 +101,20 @@ namespace crow_project {
                     
                     ///<summary>インサートするテーブルの各キーとそれに対応する値の組み合わせを格納するDictionaryを宣言</summary>
                     /// <summary>key:keysの各要素 value:valuesの各要素</summary>
-                    Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
+                    Dictionary<string, string> employeeData = new Dictionary<string, string>();
 
                     ///<summary>宣言したDictionaryにすべて格納する</summary>
-                    for (int i = 0; i < keys.LongCount(); i++) {
+                    for (int i = 0; i < keys.Count; i++) {
 
-                        
-                        EmployeeData.Add(keys[i], values[i]);
+
+                        employeeData.Add(keys[i], values[i]);
 
                     }
 
                     ///<summary>登録データベースに登録を試みる</summary>
 
                     Dao dao = new Dao();
-                    if (dao.Insert(EmployeeData) == true) {
+                    if (dao.Insert(employeeData) == true) {
                         ///<summary>成功時Insert_Success.aspxへ送る</summary> 
                         Server.Transfer("Insert_Success.aspx");
 

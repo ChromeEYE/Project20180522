@@ -171,7 +171,7 @@ namespace crow_project
             }
 
             //見つかった場合返り値をtrueに
-            if (executeID != "" || executePW != "")
+            if (!string.IsNullOrEmpty(executeID) || executePW != "")
                 rtn = true;
 
             return rtn;

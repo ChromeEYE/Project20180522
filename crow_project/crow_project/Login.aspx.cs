@@ -13,24 +13,22 @@ namespace UC01 {
         //ログインボタンが押されたとき
         protected void LoginButton_Click(object sender, EventArgs e) {
 
-            bool flag = true;
+            bool loginFlag = true;
             string userId = UserID.Text;
             string password = Password.Text;
-      
+
             using (TranMng trn = new TranMng()) {
 
                 Dao dao = new Dao();
 
-                flag = dao.Login(userId, password);
-
-
+                loginFlag = dao.Login(userId, password);
             }
-                // flagがtrueならメニュー画面へ遷移・falseならエラー画面1に遷移
-                if (flag) {
-                    Server.Transfer("Menu.aspx");
-                } else {
-                    Server.Transfer("Error1.html");
-                }
+            // flagがtrueならメニュー画面へ遷移・falseならエラー画面1に遷移
+            if (loginFlag) {
+                Server.Transfer("Menu.aspx");
+            } else {
+                Server.Transfer("Error1.html");
+            }
         }
     }
 }

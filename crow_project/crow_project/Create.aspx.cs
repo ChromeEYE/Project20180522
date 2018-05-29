@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace crow_project {
     public partial class Create : System.Web.UI.Page {
 
-        
+
 
         protected void Page_Load(object sender, EventArgs e) {
 
@@ -20,18 +20,15 @@ namespace crow_project {
             ///<summary>未ログイン時ログインページに送る</summary>
 
             ///<summary>ログインしている状態ならページを表示する</summary>
-
-
-            ///<summary>所属マスタの部署名をselectに追加する(必要かどうか考える余地あり)</summary>  
         }
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
             using (TransMng mng = new TransMng()) {
-                
-                ///InsertするためのDictionary型変数のkeyのリスト
+
+                ///InsertするためのDictionary型変数のkeyのリスト keys
                 List<string> keys = new List<string>() { "従業員コード", "氏", "名", "氏（フリガナ）", "名（フリガナ）", "性別コード", "生年月日", "所属コード", "入社日" };
-                
+
                 ///<summary>フォームから入力された値を格納する</summary>
                 //従業員コード
                 string Emp_code = emp_cd.Text;
@@ -79,48 +76,55 @@ namespace crow_project {
                 //年月日をまとめる
                 string Emp_date = Emp_y + "/" + Emp_m + "/" + Emp_d;
 
-                //各種入力された値をlistにまとめる
+                //各種入力された値をlistにまとめる values
                 List<string> values = new List<string> { Emp_code, Last_name, First_name, Last_name_kana, First_name_kana, gender, Birth_date, section, Emp_date };
 
                 ///<summary>日付の入力が正しいかチェックする</summary>
                 DateTime dt;
+
+                Boolean TimeInput = true;
+
                 if (DateTime.TryParse(Birth_date, out dt)) {
-                    if (DateTime.TryParse(Emp_date, out dt)) {
-
-                            Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
-
-                            ///<summary>Dictionaryにすべて格納する</summary>
-                            for (int i = 0; i < keys.LongCount(); i++) {
-
-                                EmployeeData.Add(keys[i], values[i]);
-
-                            }
-
-                            ///<summary>登録データベースに登録を試みる</summary>
-
-                            Dao dao = new Dao();
-                            if (dao.Insert(EmployeeData) == true) {
-                                ///<summary>成功時Insert_Success.aspxへ送る</summary> 
-                                Server.Transfer("Insert_Success.aspx");
-
-                            } else {
-                                ///<summary>失敗時Error.htmlへ送る</summary>
-                                Server.Transfer("Error2.html");
-                            }
-
-
-                        
-
-                    } else {
-                        //日付の再入力を求める
-                        DateParseError2.Text = "日付の入力に誤りがあります";
-
-                    }
                 } else {
                     //日付の再入力を求める
-                    DateParseError1.Text = "日付の入力に誤りがあります";
+                    TimeInput = false;
+                    DateValidator1.IsValid = false;
+                }
+                if (DateTime.TryParse(Emp_date, out dt)) {
+                } else {
+                    //日付の再入力を求める
+                    TimeInput = false;
+                    DateValidator2.IsValid = false;
+                }
+
+                if (TimeInput == true) {
+                    
+                    ///<summary>インサートするテーブルの各キーとそれに対応する値の組み合わせを格納するDictionaryを宣言</summary>
+                    /// <summary>key:keysの各要素 value:valuesの各要素</summary>
+                    Dictionary<string, string> EmployeeData = new Dictionary<string, string>();
+
+                    ///<summary>宣言したDictionaryにすべて格納する</summary>
+                    for (int i = 0; i < keys.LongCount(); i++) {
+
+                        
+                        EmployeeData.Add(keys[i], values[i]);
+
+                    }
+
+                    ///<summary>登録データベースに登録を試みる</summary>
+
+                    Dao dao = new Dao();
+                    if (dao.Insert(EmployeeData) == true) {
+                        ///<summary>成功時Insert_Success.aspxへ送る</summary> 
+                        Server.Transfer("Insert_Success.aspx");
+
+                    } else {
+                        ///<summary>失敗時Error.htmlへ送る</summary>
+                        Server.Transfer("Error2.html");
+                    }
 
                 }
+
 
             }
         }

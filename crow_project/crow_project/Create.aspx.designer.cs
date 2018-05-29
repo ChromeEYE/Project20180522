@@ -40,6 +40,15 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
+        /// RegularExpressionValidator1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// last_nm コントロール。
         /// </summary>
         /// <remarks>
@@ -175,13 +184,13 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// DateParseError1 コントロール。
+        /// DateValidator1 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateParseError1;
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator1;
         
         /// <summary>
         /// emp_y コントロール。
@@ -238,13 +247,13 @@ namespace crow_project {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
         
         /// <summary>
-        /// DateParseError2 コントロール。
+        /// DateValidator2 コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateParseError2;
+        protected global::System.Web.UI.WebControls.CustomValidator DateValidator2;
         
         /// <summary>
         /// CreateButton コントロール。

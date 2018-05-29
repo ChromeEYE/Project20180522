@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 
 namespace crow_project
 {
@@ -6,6 +7,8 @@ namespace crow_project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlTransaction sqltrn = TranMng.Transaction;
+
             using (TranMng trn = new TranMng())
             {
                 Dao dao = new Dao();
@@ -23,6 +26,8 @@ namespace crow_project
                     Label2.Text = "削除できません";
                     Label3.Text = "該当する従業員情報は既に削除されています";
                 }
+
+                sqltrn.Commit();
             }
         }
     }

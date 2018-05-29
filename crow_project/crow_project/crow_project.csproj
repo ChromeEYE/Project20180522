@@ -77,10 +77,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
     <Content Include="Logout.html" />
-<<<<<<< HEAD
     <Content Include="Logout_style.css" />
-=======
->>>>>>> 181c46f10aa69a560a88d238d19c0ea342202bdc
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />

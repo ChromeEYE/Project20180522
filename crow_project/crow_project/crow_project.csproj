@@ -73,6 +73,8 @@
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
+    <Content Include="Logout.html" />
+    <Content Include="Logout_style.css" />
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />

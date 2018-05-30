@@ -19,8 +19,7 @@ namespace crow_project {
 
         ///<summary>ボタンのクリック時</summary>
         protected void Submit_Click(object sender, EventArgs e) {
-            using (TranMng mng = new TranMng())
-            {
+            using (TranMng mng = new TranMng()) {
                 ///<summary>フォームから入力された生年月日、入社日を格納する</summary>
                 //生年月日
                 //年
@@ -51,27 +50,21 @@ namespace crow_project {
 
                 bool TimeInput = true;
 
-                if (DateTime.TryParse(Birth_date, out dt))
-                {
-                }
-                else
-                {
+                //生年月日の入力のチェック
+                if (DateTime.TryParse(Birth_date, out dt) == false) {
                     //日付の再入力を求める
                     TimeInput = false;
                     DateValidator1.IsValid = false;
                 }
-                if (DateTime.TryParse(Emp_date, out dt))
-                {
-                }
-                else
-                {
+                //入社日の入力のチェック
+                if (DateTime.TryParse(Emp_date, out dt) == false) {
                     //日付の再入力を求める
                     TimeInput = false;
                     DateValidator2.IsValid = false;
+
                 }
 
-                if (TimeInput == true)
-                {
+                if (TimeInput == true) {
 
                     ///<summary>
                     /// 日付以外の残りのフォームから得られた値を格納する
@@ -109,8 +102,7 @@ namespace crow_project {
                     Dictionary<string, string> employeeData = new Dictionary<string, string>();
 
                     ///<summary>宣言したDictionaryにすべて格納する</summary>
-                    for (int i = 0; i < keys.Count; i++)
-                    {
+                    for (int i = 0; i < keys.Count; i++) {
 
 
                         employeeData.Add(keys[i], values[i]);
@@ -120,15 +112,12 @@ namespace crow_project {
                     ///<summary>登録データベースに登録を試みる</summary>
 
                     Dao dao = new Dao();
-                    if (dao.Insert(employeeData) == true)
-                    {
+                    if (dao.Insert(employeeData) == true) {
                         mng.Commit();
                         ///<summary>成功時Insert_Success.aspxへ送る</summary> 
                         Server.Transfer("Insert_Success.aspx");
 
-                    }
-                    else
-                    {
+                    } else {
                         ///<summary>失敗時Error.htmlへ送る</summary>
                         Server.Transfer("Error2.html");
                     }

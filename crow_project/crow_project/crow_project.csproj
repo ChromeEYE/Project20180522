@@ -66,11 +66,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Logout.html" />
+    <Content Include="Create.aspx" />
+    <Content Include="Error2.html" />
+    <Content Include="Insert_Success.aspx" />
     <Content Include="Error1.css" />
     <Content Include="Error1.html" />
     <Content Include="Login.aspx" />
     <Content Include="Login.css" />
+    <Content Include="Logout.html" />
+    <Content Include="Logout_style.css" />
     <Content Include="Menu.aspx" />
     <Content Include="Menu.css" />
     <Content Include="packages.config" />
@@ -82,13 +86,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Logout_style.css" />
-    <Content Include="UC03\Create.aspx" />
-    <Content Include="UC03\Error.html" />
-    <Content Include="UC03\Insert_Success.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Remover.aspx" />
+    <Content Include="ShowMemberList.aspx" />
+    <Content Include="Create.css" />
+    <Content Include="InsertSuccess.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dao.cs" />
+    <Compile Include="Insert_Success.aspx.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insert_Success.aspx.designer.cs">
+      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,29 +124,24 @@
     <Compile Include="Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Menu.css.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Menu.css.designer.cs">
-      <DependentUpon>Menu.css.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransMng.cs" />
-    <Compile Include="UC03\Create.aspx.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
+    <Compile Include="Remover.aspx.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC03\Create.aspx.designer.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
+    <Compile Include="Remover.aspx.designer.cs">
+      <DependentUpon>Remover.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UC03\Insert_Success.aspx.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    <Compile Include="ShowMemberList.aspx.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UC03\Insert_Success.aspx.designer.cs">
-      <DependentUpon>Insert_Success.aspx</DependentUpon>
+    <Compile Include="ShowMemberList.aspx.designer.cs">
+      <DependentUpon>ShowMemberList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TranMng.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

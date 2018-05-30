@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="Login.css" type="text/css"/> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style2 {
-            width: 200px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,17 +14,14 @@
         
         <p>&nbsp;</p>
 
-         <p id="text1">  ユーザID <span id="user"><asp:TextBox ID="UserID" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="ユーザIDが未入力です" ControlToValidate="UserID" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
+         <p class="text">  ユーザID <span id="user"><asp:TextBox ID="UserID" runat="server"></asp:TextBox>&nbsp; <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="ユーザIDが未入力です" ControlToValidate="UserID" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
              </span>
              </p>
-        <p id="text2"> 
-           パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator>
-             </span>
-             </p>
-        <div id="button">
-            <br/>
-         <span><asp:Button ID="LoginButton" runat="server" Text="ログイン" OnClick="LoginButton_Click" /></span>
-            </div>
+        <p class="text"> 
+           パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox>&nbsp; </span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator></p>
+
+         <br />
+        <span id="button"><asp:Button ID="LoginButton" runat="server" Text="ログイン" OnClick="LoginButton_Click" /></span>
     </form>
 </body>
 </html>

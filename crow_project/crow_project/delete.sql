@@ -1,1 +1,0 @@
-DELETE FROM m_employee WHERE code = @code

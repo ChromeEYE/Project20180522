@@ -7,7 +7,6 @@ using System.Collections.Generic;
 namespace UC01 {
     public partial class Login : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-
         }
 
         //ログインボタンが押されたとき

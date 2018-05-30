@@ -5,7 +5,7 @@ using UC01;
 /// <summary>
 /// メニュー画面の処理
 /// </summary>
-namespace UC01{
+namespace UC01 {
     public partial class Menu : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 

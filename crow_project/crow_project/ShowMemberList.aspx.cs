@@ -4,7 +4,6 @@ using System.Web.UI.WebControls;
 using crow_project;
 
 namespace UC2 {
-    ///
     public partial class ShowMemberList : System.Web.UI.Page {
         /// <summary>
         /// ページを読み込むときのメソッド
@@ -12,7 +11,8 @@ namespace UC2 {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
-            //列数
+
+            //テーブルの列数
             const int TABLENUM = 7;
             //データベースの列数
             const int MAXNUM = 9;
@@ -20,7 +20,6 @@ namespace UC2 {
             int listNum;
 
             using (TranMng trn = new TranMng()) {
-
                 //DAOのインスタンス
                 Dao dao = new Dao();
                 List<string> member;
@@ -51,7 +50,7 @@ namespace UC2 {
                             //テーブルの最後に"削除"ボタンの作成
                             case TABLENUM:
                                 Button deleteButton = new Button();
-                                deleteButton.Text = " "+"削除";
+                                deleteButton.Text = " " + "削除";
                                 //行のコード情報（削除したい従業員コード）
                                 deleteButton.ID = member[i * MAXNUM];
                                 deleteButton.Click += new EventHandler(Remover_ButtonClick);
@@ -60,7 +59,7 @@ namespace UC2 {
 
                             //Listの情報をテーブルに挿入
                             default:
-                                row.Cells[j].Text =  member[listNum + (i * MAXNUM)];
+                                row.Cells[j].Text = member[listNum + (i * MAXNUM)];
                                 listNum++;
                                 break;
                         }

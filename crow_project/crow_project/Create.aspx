@@ -26,13 +26,13 @@
       <p>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emp_cd" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="[A-Za-z0-9]{0,4}">従業員コードは半角4文字までです</asp:RegularExpressionValidator>
         </p>
-    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏名</b><span style="padding-left:96px"></span>氏<asp:TextBox ID="last_nm" runat="server" Width="135px"></asp:TextBox><span style="padding-left:90px">
-        名 <asp:TextBox ID="first_nm" runat="server" style="margin-left: 0px" Width="135px"></asp:TextBox>
+    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 氏名</b><span style="padding-left:96px"></span>氏<asp:TextBox ID="last_nm" runat="server" Width="135px" MaxLength="16"></asp:TextBox><span style="padding-left:90px">
+        名 <asp:TextBox ID="first_nm" runat="server" style="margin-left: 0px" Width="135px" MaxLength="16"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="last_nm" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="first_nm" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator><br />
-        <span style="padding-left:103px">氏(フリガナ)<asp:TextBox ID="last_nm_kana" runat="server" Width="135px"></asp:TextBox>
+        <span style="padding-left:103px">氏(フリガナ)<asp:TextBox ID="last_nm_kana" runat="server" Width="135px" MaxLength="24"></asp:TextBox>
         &nbsp;&nbsp;
-        名(フリガナ)<asp:TextBox ID="first_nm_kana" runat="server" Width="135px"></asp:TextBox>
+        名(フリガナ)<asp:TextBox ID="first_nm_kana" runat="server" Width="135px" MaxLength="24"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="last_nm_kana" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="first_nm_kana" ErrorMessage="RequiredFieldValidator" ForeColor="Red">未入力です</asp:RequiredFieldValidator></span>
         </span>
@@ -48,11 +48,11 @@
       <p>&nbsp;</p>
 
 
-    <p><b>&nbsp;&nbsp;&nbsp;&nbsp; 生年月日</b><span style="padding-left:45px">年(西暦)<asp:TextBox ID="birth_y" runat="server" Width="50px"></asp:TextBox>
+    <p><b>&nbsp;&nbsp;&nbsp;&nbsp; 生年月日</b><span style="padding-left:45px">年(西暦)<asp:TextBox ID="birth_y" runat="server" Width="50px" MaxLength="4"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_y">未入力です</asp:RequiredFieldValidator>
-        月(例:01,12)<asp:TextBox ID="birth_m" runat="server" Width="50px"></asp:TextBox>
+        月(例:01,12)<asp:TextBox ID="birth_m" runat="server" Width="50px" MaxLength="2"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_m">未入力です</asp:RequiredFieldValidator>
-        日(例:01,30)<asp:TextBox ID="birth_d" runat="server" Width="50px"></asp:TextBox>
+        日(例:01,30)<asp:TextBox ID="birth_d" runat="server" Width="50px" MaxLength="2"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="birth_d">未入力です</asp:RequiredFieldValidator>
     </span>
    </p>
@@ -74,11 +74,11 @@
         </select></span>
     </p>
       <p>&nbsp;</p>
-    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 入社日</b><span style="padding-left:45px"></span>年(西暦)<asp:TextBox ID="emp_y" runat="server" Width="50px"></asp:TextBox>
+    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 入社日</b><span style="padding-left:45px"></span>年(西暦)<asp:TextBox ID="emp_y" runat="server" Width="50px" MaxLength="4"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_y">未入力です</asp:RequiredFieldValidator>
-        月(例:01,12)<asp:TextBox ID="emp_m" runat="server" Width="50px"></asp:TextBox>
+        月(例:01,12)<asp:TextBox ID="emp_m" runat="server" Width="50px" MaxLength="2"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_m">未入力です</asp:RequiredFieldValidator>
-        日(例:01,30)<asp:TextBox ID="emp_d" runat="server" Width="50px"></asp:TextBox>
+        日(例:01,30)<asp:TextBox ID="emp_d" runat="server" Width="50px" MaxLength="2"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ControlToValidate="emp_d">未入力です</asp:RequiredFieldValidator>
       
 

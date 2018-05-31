@@ -18,7 +18,7 @@
              </span>
              </p>
         <p class="text"> 
-           パスワード <span id="password"><asp:TextBox ID="Password" runat="server"></asp:TextBox>&nbsp; </span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator></p>
+           パスワード <span id="password"><asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>&nbsp; </span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="パスワードが未入力です" ControlToValidate="Password" BorderColor="Red" ForeColor="Red"></asp:RequiredFieldValidator></p>
 
          <br />
         <span id="button"><asp:Button ID="LoginButton" runat="server" Text="ログイン" OnClick="LoginButton_Click" /></span>
